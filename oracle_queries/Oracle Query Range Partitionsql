@@ -35,5 +35,4 @@ ALTER TABLE sales_range_partition
       ADD PARTITION sales_q1_2015 VALUES LESS THAN (TO_DATE('01-APR-2015','dd-MON-yyyy'))
 
 
-
 ------------------------------------------End Range partition--------------------------------------------------------
