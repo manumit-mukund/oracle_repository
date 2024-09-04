@@ -62,4 +62,9 @@ FROM
 WHERE
     table_name = 'SALES_AUTO_LIST';
 
+SELECT
+    *
+FROM
+    sales_auto_list PARTITION ( p_cal );
+
 --------------------------------------------End AutoList partition-----------------------------------------
