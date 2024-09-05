@@ -50,6 +50,19 @@ INSERT INTO items VALUES (
     11.5
 );
 
+INSERT INTO items VALUES (
+    7,
+    'Sony Caio Laptop 14"',
+    44000,
+    12.5
+);
+
+UPDATE items
+SET
+    itemname = 'Sony Vaio Laptop 14"'
+WHERE
+    itemno = 7;
+
 CREATE TABLE customers (
     custno   NUMBER(5)
         CONSTRAINT customers_pk PRIMARY KEY,
@@ -387,3 +400,31 @@ FROM
 ORDER BY
     ordno,
     itemno;
+
+SELECT
+    *
+FROM
+    orders
+WHERE
+    custno IN (
+        SELECT
+            custno
+        FROM
+            orders
+        GROUP BY
+            custno
+        HAVING
+            COUNT(*) > 1
+    );
+
+SELECT
+    *
+FROM
+    items
+WHERE
+    itemno NOT IN (
+        SELECT
+            itemno
+        FROM
+            lineitems
+    )
