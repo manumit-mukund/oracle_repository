@@ -427,4 +427,4 @@ WHERE
             itemno
         FROM
             lineitems
-    )
+    );
