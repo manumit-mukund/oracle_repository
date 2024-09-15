@@ -1,6 +1,6 @@
 SET AUTOCOMMIT OFF
 
--- drop table lock_test;
+DROP TABLE lock_test;
 
 CREATE TABLE lock_test (
     id#   NUMBER PRIMARY KEY,
@@ -11,6 +11,8 @@ INSERT INTO lock_test VALUES (
     1,
     'Insert lock test'
 );
+
+COMMIT;
 
 SELECT
     *
