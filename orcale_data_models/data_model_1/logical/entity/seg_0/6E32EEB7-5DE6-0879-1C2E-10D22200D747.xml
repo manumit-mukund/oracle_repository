@@ -1,0 +1,33 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="6E32EEB7-5DE6-0879-1C2E-10D22200D747" name="organization">
+<createdBy>admin</createdBy>
+<createdTime>2024-09-09 07:42:29 UTC</createdTime>
+<ownerDesignName>data_model_1</ownerDesignName>
+<engineerTo>
+<item key="DF6803B4-7D4C-A991-45F3-8954C03F5715" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<hierarchicalParent>0F7764FD-AD7E-8BCC-C3E6-FDB861799BF2</hierarchicalParent>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="organization_name" id="B8AAEB54-6BAE-AA8D-6644-6144B4C89151">
+<createdBy>admin</createdBy>
+<createdTime>2024-09-09 07:42:40 UTC</createdTime>
+<ownerDesignName>data_model_1</ownerDesignName>
+<engineerTo>
+<item key="DF6803B4-7D4C-A991-45F3-8954C03F5715" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150</dataTypeSize>
+<ownDataTypeParameters>150,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

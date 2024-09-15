@@ -34,7 +34,6 @@
 <engineerTo>
 <item key="DF6803B4-7D4C-A991-45F3-8954C03F5715" value="true"/>
 </engineerTo>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -48,7 +47,6 @@
 <engineerTo>
 <item key="DF6803B4-7D4C-A991-45F3-8954C03F5715" value="true"/>
 </engineerTo>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
@@ -71,15 +69,15 @@
 <dataTypeScale>2</dataTypeScale>
 <ownDataTypeParameters>,4,2</ownDataTypeParameters>
 </Attribute>
-<Attribute name="product_id1" id="5F1FA8D5-9235-5499-B6DE-C8FA7D095971">
+<Attribute name="category_id" id="15C10554-1C94-C299-644C-B68972FCC693">
 <createdBy>admin</createdBy>
-<createdTime>2024-09-09 07:33:12 UTC</createdTime>
+<createdTime>2024-09-09 07:35:47 UTC</createdTime>
 <generatorID>7A96A0ED-92A5-F600-4DA2-ED2E77C18D7A</generatorID>
 <ownerDesignName>data_model_1</ownerDesignName>
 <engineerTo>
 <item key="DF6803B4-7D4C-A991-45F3-8954C03F5715" value="true"/>
 </engineerTo>
-<referedAttribute>42CC1DB8-3ED7-C73A-4549-59F8B0C59532</referedAttribute>
+<referedAttribute>9CFBC54B-5980-96B5-822B-3D79B2925A1B</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
@@ -95,9 +93,10 @@
 <item key="DF6803B4-7D4C-A991-45F3-8954C03F5715" value="true"/>
 </engineerTo>
 <pk>true</pk>
-<newElementsIDs>42CC1DB8-3ED7-C73A-4549-59F8B0C59532</newElementsIDs>
+<newElementsIDs>42CC1DB8-3ED7-C73A-4549-59F8B0C59532,7A96A0ED-92A5-F600-4DA2-ED2E77C18D7A</newElementsIDs>
 <usedAttributes>
 <attributeRef>42CC1DB8-3ED7-C73A-4549-59F8B0C59532</attributeRef>
+<attributeRef>15C10554-1C94-C299-644C-B68972FCC693</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

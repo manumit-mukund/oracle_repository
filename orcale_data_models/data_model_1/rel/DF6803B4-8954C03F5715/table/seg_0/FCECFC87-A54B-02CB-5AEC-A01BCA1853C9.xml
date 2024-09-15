@@ -1,0 +1,103 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FCECFC87-A54B-02CB-5AEC-A01BCA1853C9" name="products">
+<createdBy>admin</createdBy>
+<createdTime>2024-09-09 07:52:46 UTC</createdTime>
+<generatorID>F768FF00-7126-1C52-DBDE-DA989E1EDC8A</generatorID>
+<ownerDesignName>data_model_1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="product_id" id="89FB21DC-2762-D356-B78D-BB6B2C441953">
+<createdBy>admin</createdBy>
+<createdTime>2024-09-09 07:52:47 UTC</createdTime>
+<generatorID>42CC1DB8-3ED7-C73A-4549-59F8B0C59532</generatorID>
+<ownerDesignName>data_model_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="product_name" id="53FB7DF5-6359-6B03-6072-AB6E32842054">
+<createdBy>admin</createdBy>
+<createdTime>2024-09-09 07:52:47 UTC</createdTime>
+<generatorID>B1A5C7A6-2C67-DF03-E24A-0874CA5C88F3</generatorID>
+<ownerDesignName>data_model_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150</dataTypeSize>
+<ownDataTypeParameters>150,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="price" id="4EA03E5D-F940-60ED-78F3-D9E9E627CE71">
+<createdBy>admin</createdBy>
+<createdTime>2024-09-09 07:52:47 UTC</createdTime>
+<generatorID>63DBDC18-A848-73A5-2A2D-0A97F064C068</generatorID>
+<ownerDesignName>data_model_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>9</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,9,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="current_vat" id="C508F38B-EE96-B453-6EBF-DE98E06622EA">
+<createdBy>admin</createdBy>
+<createdTime>2024-09-09 07:52:47 UTC</createdTime>
+<generatorID>F6C7921B-01D4-5796-C02F-EA5C0889BCBB</generatorID>
+<ownerDesignName>data_model_1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,4,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="product_category_category_id" id="75C35C78-13B5-5E1F-AABB-061E06527809">
+<createdBy>admin</createdBy>
+<createdTime>2024-09-09 07:52:47 UTC</createdTime>
+<generatorID>15C10554-1C94-C299-644C-B68972FCC693</generatorID>
+<ownerDesignName>data_model_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8768EDFE-316C-7277-6630-B92A1C430751" referredColumn="94AB5593-0837-CC5B-0500-1977B6487F9B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8E7CDAFD-3312-4DA9-B3B2-C87F4849752B" name="products_PK">
+<createdBy>admin</createdBy>
+<createdTime>2024-09-09 07:52:47 UTC</createdTime>
+<generatorID>797BD43F-138D-86A7-9678-EE4604CD28E2</generatorID>
+<ownerDesignName>data_model_1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="89FB21DC-2762-D356-B78D-BB6B2C441953"/>
+<colUsage columnID="75C35C78-13B5-5E1F-AABB-061E06527809"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DF9838BE-EA79-059E-2C3E-CAECEA4C6F58" name="products_product_category_FK">
+<createdBy>admin</createdBy>
+<createdTime>2024-09-09 07:52:47 UTC</createdTime>
+<generatorID>7A96A0ED-92A5-F600-4DA2-ED2E77C18D7A</generatorID>
+<ownerDesignName>data_model_1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="75C35C78-13B5-5E1F-AABB-061E06527809"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

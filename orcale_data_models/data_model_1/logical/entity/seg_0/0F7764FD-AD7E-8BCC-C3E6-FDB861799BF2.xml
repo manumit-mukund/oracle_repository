@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4ADC3895-66D4-826B-E194-2463789A44FE" name="product_category">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="0F7764FD-AD7E-8BCC-C3E6-FDB861799BF2" name="clients">
 <createdBy>admin</createdBy>
-<createdTime>2024-09-09 07:16:23 UTC</createdTime>
+<createdTime>2024-09-09 07:36:19 UTC</createdTime>
 <ownerDesignName>data_model_1</ownerDesignName>
 <engineerTo>
 <item key="DF6803B4-7D4C-A991-45F3-8954C03F5715" value="true"/>
@@ -15,9 +15,9 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="category_id" id="9CFBC54B-5980-96B5-822B-3D79B2925A1B">
+<Attribute name="client_id" id="BDD58724-85EC-F255-14CE-9B1F572CC67A">
 <createdBy>admin</createdBy>
-<createdTime>2024-09-09 07:17:28 UTC</createdTime>
+<createdTime>2024-09-09 07:36:35 UTC</createdTime>
 <ownerDesignName>data_model_1</ownerDesignName>
 <engineerTo>
 <item key="DF6803B4-7D4C-A991-45F3-8954C03F5715" value="true"/>
@@ -27,9 +27,9 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="category_name" id="73A14A13-90B3-8A62-7C55-CF4E3BFDAB89">
+<Attribute name="address" id="0A3FCAE0-AF73-DD2C-4D2B-1212E9C5A727">
 <createdBy>admin</createdBy>
-<createdTime>2024-09-09 07:18:10 UTC</createdTime>
+<createdTime>2024-09-09 07:37:19 UTC</createdTime>
 <ownerDesignName>data_model_1</ownerDesignName>
 <engineerTo>
 <item key="DF6803B4-7D4C-A991-45F3-8954C03F5715" value="true"/>
@@ -42,18 +42,15 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="FD459EDC-6AF0-91FF-49BB-CB39ED8175AD" name="Key_1">
+<identifier id="39812B47-2D91-3D12-B599-CEA35DCE3C45" name="Key_1">
 <createdBy>admin</createdBy>
-<createdTime>2024-09-09 07:20:01 UTC</createdTime>
+<createdTime>2024-09-09 07:37:48 UTC</createdTime>
 <ownerDesignName>data_model_1</ownerDesignName>
 <engineerTo>
 <item key="DF6803B4-7D4C-A991-45F3-8954C03F5715" value="true"/>
 </engineerTo>
 <pk>true</pk>
-<newElementsIDs>9CFBC54B-5980-96B5-822B-3D79B2925A1B</newElementsIDs>
-<usedAttributes>
-<attributeRef>9CFBC54B-5980-96B5-822B-3D79B2925A1B</attributeRef>
-</usedAttributes>
+<newElementsIDs>BDD58724-85EC-F255-14CE-9B1F572CC67A</newElementsIDs>
 </identifier>
 </identifiers>
 </Entity>
