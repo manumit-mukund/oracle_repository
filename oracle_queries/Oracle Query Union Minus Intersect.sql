@@ -78,6 +78,7 @@ SELECT
 FROM
     your_brick_collection;
 
+-------------------------------UNION-----------------------------------
 SELECT
     *
 FROM
@@ -100,6 +101,10 @@ SELECT
 FROM
     your_brick_collection;
 
+-------------------------------UNION-----------------------------------
+
+
+-------------------------------UNION ALL-------------------------------
 SELECT
     colour,
     shape
@@ -112,6 +117,10 @@ SELECT
 FROM
     your_brick_collection;
 
+-------------------------------UNION ALL------------------------------
+
+
+-------------------------------NOT EXISTS------------------------------
 SELECT
     colour,
     shape
@@ -148,6 +157,10 @@ WHERE
                        AND mbc.shape IS NULL ) )
     );
 
+-------------------------------NOT EXISTS------------------------------
+
+
+-------------------------------MINUS-----------------------------------
 SELECT
     colour,
     shape
@@ -172,6 +185,10 @@ SELECT
 FROM
     your_brick_collection;
 
+-------------------------------MINUS-----------------------------------
+
+
+-------------------------------NOT EXISTS------------------------------
 SELECT
     colour,
     shape
@@ -189,3 +206,105 @@ WHERE
                    AND mbc.colour IS NULL ) )
             AND ybc.shape = mbc.shape
     );
+    
+-------------------------------NOT EXISTS------------------------------
+
+
+-------------------------------EXISTS----------------------------------
+
+SELECT
+    colour,
+    shape
+FROM
+    your_brick_collection ybc
+WHERE
+    EXISTS (
+        SELECT
+            NULL
+        FROM
+            my_brick_collection mbc
+        WHERE
+            ( ybc.colour = mbc.colour
+              OR ( ybc.colour IS NULL
+                   AND mbc.colour IS NULL ) )
+            AND ybc.shape = mbc.shape
+    );
+    
+-------------------------------EXISTS-------------------------------------
+
+
+-------------------------------INTERSECT----------------------------------
+
+SELECT
+    colour,
+    shape
+FROM
+    your_brick_collection
+INTERSECT
+SELECT
+    colour,
+    shape
+FROM
+    my_brick_collection;
+    
+-------------------------------INTERSECT----------------------------------
+
+
+-------------------------------MINUS UNION ALL-----------------------------
+
+SELECT
+    colour,
+    shape
+FROM
+    your_brick_collection
+MINUS
+SELECT
+    colour,
+    shape
+FROM
+    my_brick_collection
+UNION ALL
+SELECT
+    colour,
+    shape
+FROM
+    my_brick_collection
+MINUS
+SELECT
+    colour,
+    shape
+FROM
+    your_brick_collection;   
+
+
+SELECT
+    *
+FROM
+    (
+        SELECT
+            colour,
+            shape
+        FROM
+            your_brick_collection
+        MINUS
+        SELECT
+            colour,
+            shape
+        FROM
+            my_brick_collection
+    )
+UNION ALL
+(
+    SELECT
+        colour,
+        shape
+    FROM
+        my_brick_collection
+    MINUS
+    SELECT
+        colour,
+        shape
+    FROM
+        your_brick_collection
+);
+-------------------------------MINUS UNION ALL-----------------------------
