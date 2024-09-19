@@ -71,3 +71,13 @@ WHERE
     empname LIKE '%B%'
 GROUP BY
     age;
+
+SELECT
+    age,
+    COUNT(*) AS no_of_employees
+FROM
+    temp_employee
+GROUP BY
+    age
+HAVING
+    COUNT(*) > 1;
