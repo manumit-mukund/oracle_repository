@@ -147,3 +147,45 @@ WHERE
                   OR ( ybc.shape IS NULL
                        AND mbc.shape IS NULL ) )
     );
+
+SELECT
+    colour,
+    shape
+FROM
+    your_brick_collection
+MINUS
+SELECT
+    colour,
+    shape
+FROM
+    my_brick_collection;
+
+SELECT
+    colour,
+    shape
+FROM
+    my_brick_collection
+MINUS
+SELECT
+    colour,
+    shape
+FROM
+    your_brick_collection;
+
+SELECT
+    colour,
+    shape
+FROM
+    my_brick_collection mbc
+WHERE
+    NOT EXISTS (
+        SELECT
+            NULL
+        FROM
+            your_brick_collection ybc
+        WHERE
+            ( ybc.colour = mbc.colour
+              OR ( ybc.colour IS NULL
+                   AND mbc.colour IS NULL ) )
+            AND ybc.shape = mbc.shape
+    );
