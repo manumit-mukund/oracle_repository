@@ -1,5 +1,5 @@
 CREATE TABLE employee_income (
-    empid      NUMBER(10),
+    empid      NUMBER(10) primary key,
     name       VARCHAR2(20),
     salary     NUMBER(10),
     department VARCHAR2(20)
