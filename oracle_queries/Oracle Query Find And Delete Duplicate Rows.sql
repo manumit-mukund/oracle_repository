@@ -80,3 +80,28 @@ GROUP BY (
 )
 HAVING
     COUNT(*) > 1;
+    
+SELECT
+    *
+FROM
+    demo;
+
+CREATE TABLE temp_demo
+    AS
+        SELECT DISTINCT
+            *
+        FROM
+            demo;
+
+SELECT
+    *
+FROM
+    temp_demo;
+
+DELETE FROM demo;
+
+INSERT INTO demo
+    SELECT
+        *
+    FROM
+        temp_demo;
