@@ -80,7 +80,7 @@ GROUP BY (
 )
 HAVING
     COUNT(*) > 1;
-    
+
 CREATE TABLE temp_demo
     AS
         SELECT DISTINCT
