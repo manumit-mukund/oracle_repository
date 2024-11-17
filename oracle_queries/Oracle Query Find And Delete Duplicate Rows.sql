@@ -81,11 +81,6 @@ GROUP BY (
 HAVING
     COUNT(*) > 1;
     
-SELECT
-    *
-FROM
-    demo;
-
 CREATE TABLE temp_demo
     AS
         SELECT DISTINCT
