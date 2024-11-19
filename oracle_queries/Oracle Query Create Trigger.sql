@@ -1,11 +1,11 @@
-CREATE TABLE employees (
+CREATE TABLE employee (
     employee_id    NUMBER PRIMARY KEY,
     employee_name  VARCHAR2(100),
     salary         NUMBER(10, 2),
     promotion_date DATE
 );
 
-INSERT INTO employees (
+INSERT INTO employee (
     employee_id,
     employee_name,
     salary,
@@ -17,7 +17,7 @@ INSERT INTO employees (
     NULL
 );
 
-INSERT INTO employees (
+INSERT INTO employee (
     employee_id,
     employee_name,
     salary,
@@ -32,21 +32,20 @@ INSERT INTO employees (
 SELECT
     *
 FROM
-    employees;
+    employee;
 
 CREATE OR REPLACE TRIGGER update_salary_on_promotion BEFORE
-    UPDATE OF promotion_date ON employees
+    UPDATE OF promotion_date ON employee
     FOR EACH ROW
 BEGIN
     IF :new.promotion_date IS NOT NULL THEN
-        -- Update the salary before promotion
-       -- :old.salary := :old.salary;
+        -- Update the salary before promotion       
         -- Update the salary after promotion
         :new.salary := :old.salary * 1.1; -- 10% increase after promotion
     END IF;
 END;
 
-UPDATE employees
+UPDATE employee
 SET
     promotion_date = sysdate
 WHERE
