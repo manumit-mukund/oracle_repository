@@ -38,8 +38,7 @@ CREATE OR REPLACE TRIGGER update_salary_on_promotion BEFORE
     UPDATE OF promotion_date ON employee
     FOR EACH ROW
 BEGIN
-    IF :new.promotion_date IS NOT NULL THEN
-        -- Update the salary before promotion       
+    IF :new.promotion_date IS NOT NULL THEN            
         -- Update the salary after promotion
         :new.salary := :old.salary * 1.1; -- 10% increase after promotion
     END IF;
