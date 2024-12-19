@@ -1,6 +1,6 @@
 SET SERVEROUTPUT ON
 
-CREATE OR REPLACE PROCEDURE procOneINOUTParameter (
+CREATE OR REPLACE PROCEDURE proconeinoutparameter (
     genericparam IN OUT VARCHAR2
 ) IS
 BEGIN
@@ -11,7 +11,8 @@ END;
 DECLARE
     genericparam VARCHAR2(100) := 'Manu';
 BEGIN
-    procOneINOUTParameter(genericparam);
+    dbms_output.put_line(genericparam);
+    proconeinoutparameter(genericparam);
     dbms_output.put_line(genericparam);
 END;
 /
