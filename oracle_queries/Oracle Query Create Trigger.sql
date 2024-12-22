@@ -12,7 +12,7 @@ INSERT INTO employee (
     promotion_date
 ) VALUES (
     1,
-    'John Doe',
+    'E1',
     50000,
     NULL
 );
@@ -24,7 +24,7 @@ INSERT INTO employee (
     promotion_date
 ) VALUES (
     2,
-    'Jane Smith',
+    'E2',
     60000,
     NULL
 );
