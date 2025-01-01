@@ -63,5 +63,16 @@ INSERT INTO bct_t1 (
     20,
     sysdate
 );
-        
+
+SELECT
+    *
+FROM
+    bct_t1;
+
+UPDATE bct_t1
+SET
+    quantity = 10
+WHERE
+    id = 1;
+
         
