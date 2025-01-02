@@ -75,4 +75,8 @@ SET
 WHERE
     id = 1;
 
+DELETE FROM bct_t1
+WHERE
+    id = 1;
+
         
