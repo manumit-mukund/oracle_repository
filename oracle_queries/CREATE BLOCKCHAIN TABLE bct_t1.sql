@@ -79,4 +79,15 @@ DELETE FROM bct_t1
 WHERE
     id = 1;
 
+TRUNCATE TABLE bct_t1;
+
+ALTER TABLE bct_t1 MODIFY (
+    fruit VARCHAR2(25)
+);
+
+ALTER TABLE bct_t1 ADD (
+    additional_info VARCHAR2(50)
+);
+
+ALTER TABLE bct_t1 DROP COLUMN quantity;
         
