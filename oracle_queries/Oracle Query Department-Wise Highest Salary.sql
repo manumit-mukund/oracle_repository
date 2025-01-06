@@ -3,11 +3,11 @@ SELECT
 FROM
     employee_income
 WHERE
-    ( department, salary ) IN (
+    ( deptid, salary ) IN (
         SELECT
-            department, MAX(salary)
+            deptid, MAX(salary)
         FROM
             employee_income
         GROUP BY
-            department
+            deptid
     );
