@@ -2,6 +2,8 @@ show con_name;
 
 ALTER SESSION SET container = pdb2;
 
+ALTER PLUGGABLE DATABASE pdb2 OPEN READ WRITE;
+
 show user;
 
 CREATE BLOCKCHAIN TABLE bct_t1 (
