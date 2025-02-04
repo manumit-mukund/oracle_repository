@@ -1,6 +1,8 @@
 show con_name;
 
-ALTER SESSION SET container = pdb2;
+ALTER SESSION SET CONTAINER = pdb2;
+
+show con_name;
 
 ALTER PLUGGABLE DATABASE pdb2 OPEN READ WRITE;
 
@@ -13,13 +15,10 @@ CREATE BLOCKCHAIN TABLE bct_t1 (
     created_date DATE,
     CONSTRAINT bct_t1_pk PRIMARY KEY ( id )
 )
-no drop until 0 days idle
-no delete until 16 days after insert
-    hashing
-    using
-    "SHA2_512"
-    version
-"v1";
+    NO DROP UNTIL 0 DAYS IDLE
+    NO DELETE UNTIL 16 DAYS AFTER INSERT
+    HASHING USING "SHA2_512"
+    VERSION "v1";
 
 set linesize 120 pagesize 50
 column column_name format a30
@@ -59,12 +58,20 @@ INSERT INTO bct_t1 (
     fruit,
     quantity,
     created_date
-) VALUES (
-    1,
-    'apple',
-    20,
-    sysdate
-);
+) VALUES ( 1,
+           'apple',
+           20,
+           sysdate );
+
+INSERT INTO bct_t1 (
+    id,
+    fruit,
+    quantity,
+    created_date
+) VALUES ( 2,
+           'pomegranate',
+           30,
+           sysdate );
 
 SELECT
     *
@@ -87,9 +94,16 @@ ALTER TABLE bct_t1 MODIFY (
     fruit VARCHAR2(25)
 );
 
+ALTER TABLE bct_t1 MODIFY (
+    fruit VARCHAR2(15)
+);
+
+ALTER TABLE bct_t1 MODIFY (
+    fruit VARCHAR2(9)
+);
+
 ALTER TABLE bct_t1 ADD (
     additional_info VARCHAR2(50)
 );
 
 ALTER TABLE bct_t1 DROP COLUMN quantity;
-        
