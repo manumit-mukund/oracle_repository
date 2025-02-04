@@ -84,6 +84,12 @@ SET
 WHERE
     id = 1;
 
+UPDATE bct_t1
+SET
+    quantity = 40
+WHERE
+    id = 2;
+
 DELETE FROM bct_t1
 WHERE
     id = 1;
