@@ -12,9 +12,9 @@ END;
 /
 
 DECLARE
-    n3 NUMBER(2);
+    n NUMBER(2);
 BEGIN
-    n3 := addTwoNumbers(11, 22);
-    dbms_output.put_line('Addition is: ' || n3);
+    n := addTwoNumbers(11, 22);
+    dbms_output.put_line('Addition is: ' || n);
 END;
 /
