@@ -59,3 +59,11 @@ INSERT INTO student (
 ) VALUES ( 'English',
            2,
            'E' );
+
+INSERT INTO student (
+    subject,
+    year,
+    name
+) VALUES ( 'English',
+           2,
+           'E' );
