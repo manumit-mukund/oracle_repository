@@ -21,3 +21,10 @@ SELECT
     *
 FROM
     student;
+
+ALTER TABLE student DROP COLUMN autoid;
+
+SELECT
+    *
+FROM
+    student;
