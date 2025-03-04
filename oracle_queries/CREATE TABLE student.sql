@@ -67,3 +67,8 @@ INSERT INTO student (
 ) VALUES ( 'English',
            2,
            'E' );
+
+SELECT
+    *
+FROM
+    student;

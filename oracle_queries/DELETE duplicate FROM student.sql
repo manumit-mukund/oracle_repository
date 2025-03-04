@@ -1,7 +1,5 @@
 SELECT
-    subject,
-    year,
-    name
+    *
 FROM
     student
 GROUP BY
