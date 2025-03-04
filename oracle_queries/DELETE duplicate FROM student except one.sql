@@ -27,4 +27,9 @@ INSERT INTO student
             student_distinct
     );
 
+SELECT
+    *
+FROM
+    student;
+
 DROP TABLE student_distinct;
