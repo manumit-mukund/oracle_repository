@@ -1,28 +1,15 @@
-CREATE PLUGGABLE DATABASE pdb2 ADMIN USER SYSDBA IDENTIFIED BY root 
-CREATE_FILE_DEST = 'C:\Users\admin\Downloads\WINDOWS.X64_213000_db_home\oradata';
+SELECT
+    name
+FROM
+    v$datafile;
 
-ALTER PLUGGABLE DATABASE pdb2 OPEN READ WRITE;
+DROP TABLESPACE manu_tbs_01 INCLUDING CONTENTS CASCADE CONSTRAINTS;
 
-COLUMN pdb_name FORMAT A20
+CREATE TABLESPACE manu_tbs_01
+    DATAFILE 'C:\APP\ADMIN\PRODUCT\23AI\DBHOMEFREE\DATABASE\MANU_TBS_01.DBF' SIZE 50M REUSE
+    AUTOEXTEND ON NEXT 10M MAXSIZE 100M;
 
 SELECT
-    pdb_name,
-    status
+    name
 FROM
-    dba_pdbs
-ORDER BY
-    pdb_name;
-    
-
-COLUMN name FORMAT A20
-
-SELECT
-    name,
-    open_mode
-FROM
-    v$pdbs
-ORDER BY
-    name;
-
-SHOW PDBS;
-
+    v$datafile;
