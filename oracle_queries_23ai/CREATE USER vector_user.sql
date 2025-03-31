@@ -17,3 +17,5 @@ GRANT db_developer_role TO vector_user;
 CREATE OR REPLACE DIRECTORY dm_dump AS '/home/oracle';
 
 GRANT READ, WRITE ON DIRECTORY dm_dump TO vector_user;
+
+GRANT ALL PRIVILEGES TO vector_user;
