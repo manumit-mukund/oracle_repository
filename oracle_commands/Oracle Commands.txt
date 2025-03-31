@@ -1,0 +1,148 @@
+---------------------------------------------Start--------------------------------------------------------------
+
+Open command prompt and type in to the installation:
+sqlplus / as sysdba
+
+SQL*Plus: Release 23.0.0.0.0 - Production on Mon Mar 31 11:14:10 2025
+Version 23.7.0.25.01
+
+Copyright (c) 1982, 2025, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 23ai Free Release 23.0.0.0.0 - Develop, Learn, and Run for Free
+Version 23.7.0.25.01
+
+SQL>
+
+---------------------------------------------End----------------------------------------------------------------
+
+
+---------------------------------------------Start--------------------------------------------------------------
+
+Open command prompt and type in to see the listener:
+C:\Users\admin>lsnrctl status
+
+LSNRCTL for 64-bit Windows: Version 23.0.0.0.0 - Production on 31-MAR-2025 11:12:56
+
+Copyright (c) 1991, 2025, Oracle.  All rights reserved.
+
+Connecting to (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=PHGLAPDSALES01)(PORT=1522)))
+STATUS of the LISTENER
+------------------------
+Alias                     LISTENER
+Version                   TNSLSNR for 64-bit Windows: Version 23.0.0.0.0 - Production
+Start Date                30-MAR-2025 13:21:01
+Uptime                    0 days 21 hr. 51 min. 55 sec
+Trace Level               off
+Security                  ON: Local OS Authentication
+SNMP                      OFF
+Default Service           FREE
+Listener Parameter File   C:\app\admin\product\23ai\dbhomeFree\network\admin\listener.ora
+Listener Log File         C:\app\admin\product\23ai\diag\tnslsnr\PHGLAPDSALES01\listener\alert\log.xml
+Listening Endpoints Summary...
+  (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=PHGLAPDSALES01)(PORT=1522)))
+  (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(PIPENAME=\\.\pipe\EXTPROC1522ipc)))
+Services Summary...
+Service "696168a276ce4123b9217f9eb76f43df" has 1 instance(s).
+  Instance "free", status READY, has 2 handler(s) for this service...
+Service "FREE" has 1 instance(s).
+  Instance "free", status READY, has 2 handler(s) for this service...
+Service "FREEXDB" has 1 instance(s).
+  Instance "free", status READY, has 1 handler(s) for this service...
+Service "freepdb1" has 1 instance(s).
+  Instance "free", status READY, has 2 handler(s) for this service...
+The command completed successfully
+
+---------------------------------------------End----------------------------------------------------------------
+
+
+---------------------------------------------Start--------------------------------------------------------------
+
+Open command prompt and type in sqlplus:
+
+C:\Users\admin>sqlplus
+
+SQL*Plus: Release 23.0.0.0.0 - Production on Mon Mar 31 11:21:43 2025
+Version 23.7.0.25.01
+
+Copyright (c) 1982, 2025, Oracle.  All rights reserved.
+
+Enter user-name: sys as sysdba
+Enter password:
+
+Connected to:
+Oracle Database 23ai Free Release 23.0.0.0.0 - Develop, Learn, and Run for Free
+Version 23.7.0.25.01
+
+SQL>
+
+---------------------------------------------End----------------------------------------------------------------
+
+
+---------------------------------------------Start--------------------------------------------------------------
+
+SQL> ALTER PLUGGABLE DATABASE ALL OPEN;
+Pluggable database altered.
+
+SQL> ALTER PLUGGABLE DATABASE ALL SAVE STATE;
+
+Pluggable database altered.
+
+SQL>select * from v$version;
+
+BANNER
+--------------------------------------------------------------------------------
+BANNER_FULL
+--------------------------------------------------------------------------------
+BANNER_LEGACY
+--------------------------------------------------------------------------------
+    CON_ID
+----------
+Oracle Database 23ai Free Release 23.0.0.0.0 - Develop, Learn, and Run for Free
+Oracle Database 23ai Free Release 23.0.0.0.0 - Develop, Learn, and Run for Free
+Version 23.7.0.25.01
+Oracle Database 23ai Free Release 23.0.0.0.0 - Develop, Learn, and Run for Free
+         0
+
+BANNER
+--------------------------------------------------------------------------------
+BANNER_FULL
+--------------------------------------------------------------------------------
+BANNER_LEGACY
+--------------------------------------------------------------------------------
+    CON_ID
+
+---------------------------------------------End----------------------------------------------------------------
+
+
+---------------------------------------------Start--------------------------------------------------------------
+SQL> SHOW CON_NAME
+------------------------------
+CDB$ROOT
+
+SQL> SHOW PDBS;
+    CON_ID CON_NAME                       OPEN MODE  RESTRICTED
+---------- ------------------------------ ---------- ----------
+         2 PDB$SEED                       READ ONLY  NO
+         3 FREEPDB1                       READ WRITE NO
+
+SQL> ALTER SESSION SET CONTAINER=FREEPDB1;
+Session altered.
+
+SQL> SHOW CON_NAME
+
+CON_NAME
+------------------------------
+FREEPDB1
+
+SQL> SELECT NAME FROM V$DATAFILE;
+
+NAME
+--------------------------------------------------------------------------------
+C:\APP\ADMIN\PRODUCT\23AI\ORADATA\FREE\FREEPDB1\SYSTEM01.DBF
+C:\APP\ADMIN\PRODUCT\23AI\ORADATA\FREE\FREEPDB1\SYSAUX01.DBF
+C:\APP\ADMIN\PRODUCT\23AI\ORADATA\FREE\FREEPDB1\UNDOTBS01.DBF
+C:\APP\ADMIN\PRODUCT\23AI\ORADATA\FREE\FREEPDB1\USERS01.DBF
+
+---------------------------------------------End----------------------------------------------------------------
