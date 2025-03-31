@@ -25,5 +25,60 @@ FROM
 WHERE
     ROWNUM < 4;
 
-COMMIT;
+EXECUTE DBMS_VECTOR.LOAD_ONNX_MODEL('DM_DUMP','all-MiniLM-L6-v2.onnx','doc_model');
+
+col model_name format a12
+col mining_function format a12
+col algorithm format a12
+col attribute_name format a20
+col data_type format a20
+col vector_info format a30
+col attribute_type format a20
+set lines 120
     
+SELECT
+    model_name,
+    mining_function,
+    algorithm,
+    algorithm_type,
+    model_size
+FROM
+    user_mining_models
+WHERE
+    model_name = 'DOC_MODEL'
+ORDER BY
+    model_name;
+    
+SELECT
+    model_name,
+    attribute_name,
+    attribute_type,
+    data_type,
+    vector_info
+FROM
+    user_mining_model_attributes
+WHERE
+    model_name = 'DOC_MODEL'
+ORDER BY
+    attribute_name;
+    
+CREATE TABLE IF NOT EXISTS ccnews (
+    id   NUMBER(10) NOT NULL,
+    info VARCHAR2(4000),
+    vec  vector
+);
+
+commit;
+
+INSERT INTO ccnews (
+    id,
+    info,
+    vec
+)    SELECT
+        ROWNUM,
+        sentence,
+        to_vector(VECTOR_EMBEDDING(doc_model
+            USING sentence AS data
+        ))
+    FROM
+        ccnews_tmp;
