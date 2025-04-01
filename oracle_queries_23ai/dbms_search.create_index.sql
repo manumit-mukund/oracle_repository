@@ -72,3 +72,41 @@ FROM
     dba_indexes
 WHERE
     index_name = 'PERSON_INDX';
+    
+BEGIN
+    dbms_search.add_source('PERSON_INDX', 'SCOTT.PERSON');
+    dbms_search.add_source('PERSON_INDX', 'TIGER.PERSON');
+END;
+/
+
+SELECT
+    JSON_SERIALIZE(dbms_search.get_document('PERSON_INDX', metadata))
+FROM
+    person_indx;
+    
+SELECT
+    JSON_SERIALIZE(metadata)
+FROM
+    person_indx;
+    
+SELECT
+    JSON_SERIALIZE(dbms_search.get_document('PERSON_INDX', metadata))
+FROM
+    person_indx p
+WHERE
+        p.metadata.owner = 'SCOTT'
+    AND p.metadata.source = 'PERSON'
+    AND p.metadata.key.person_id = 1;
+    
+col owner format a20
+col source format a20
+
+SELECT
+    p.metadata.owner,
+    p.metadata.source,
+    COUNT(*)
+FROM
+    person_indx p
+GROUP BY
+    p.metadata.owner,
+    p.metadata.source;
