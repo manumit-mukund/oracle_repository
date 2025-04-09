@@ -1,3 +1,4 @@
+----------------------start for 2nd highest salary metthod1-----------------------------
 SELECT
     *
 FROM
@@ -10,11 +11,12 @@ WHERE
             employee_income e2
         WHERE
             e2.salary > e1.salary
-    );
+    );    
     
-    
-----------------------for 2nd highest start-----------------------------
+----------------------end for 2nd highest salary metthod1-----------------------------
 
+
+----------------------start for 2nd highest salary metthod2-----------------------------
 SELECT
     *
 FROM
@@ -33,4 +35,4 @@ WHERE
                     employee_income
             )
     );
-    ----------------------for 2nd highest end-----------------------------
+----------------------end for 2nd highest salary metthod2-----------------------------
