@@ -1,6 +1,5 @@
 SELECT
-    name,
-    salary
+    *
 FROM
     employee_income e1
 WHERE
