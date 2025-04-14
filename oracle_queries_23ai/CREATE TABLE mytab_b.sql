@@ -1,17 +1,99 @@
-DROP TABLE IF EXISTS mytab_b;
+DROP TABLE IF EXISTS boolean_test PURGE;
 
-CREATE TABLE mytab_b (
-    b boolean
+CREATE TABLE boolean_test (
+    id       NUMBER
+        GENERATED ALWAYS AS IDENTITY,
+    active   boolean,
+    archived bool
 );
 
-describe mytab_b;
+INSERT INTO boolean_test (
+    active,
+    archived
+) VALUES ( TRUE,
+           FALSE );
 
-var b boolean =
-true;
+INSERT INTO boolean_test (
+    active,
+    archived
+) VALUES ( TRUE,
+           FALSE );
 
-INSERT INTO mytab_b ( b ) VALUES ( :b );
+INSERT INTO boolean_test (
+    active,
+    archived
+) VALUES ( 'true',
+           'false' );
+
+INSERT INTO boolean_test (
+    active,
+    archived
+) VALUES ( 'TRUE',
+           'FALSE' );
+
+INSERT INTO boolean_test (
+    active,
+    archived
+) VALUES ( 'yes',
+           'no' );
+
+INSERT INTO boolean_test (
+    active,
+    archived
+) VALUES ( 'YES',
+           'NO' );
+
+INSERT INTO boolean_test (
+    active,
+    archived
+) VALUES ( 'on',
+           'off' );
+
+INSERT INTO boolean_test (
+    active,
+    archived
+) VALUES ( 'ON',
+           'OFF' );
+
+INSERT INTO boolean_test (
+    active,
+    archived
+) VALUES ( 1,
+           0 );
+
+INSERT INTO boolean_test (
+    active,
+    archived
+) VALUES ( '1',
+           '0' );
+
+INSERT INTO boolean_test (
+    active,
+    archived
+) VALUES ( 't',
+           'f' );
+
+INSERT INTO boolean_test (
+    active,
+    archived
+) VALUES ( 'T',
+           'F' );
+
+INSERT INTO boolean_test (
+    active,
+    archived
+) VALUES ( 'y',
+           'n' );
+
+INSERT INTO boolean_test (
+    active,
+    archived
+) VALUES ( 'Y',
+           'N' );
+
+COMMIT;
 
 SELECT
     *
 FROM
-    mytab_b;
+    boolean_test;
