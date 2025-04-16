@@ -8,8 +8,14 @@ show user;
 
 CREATE USER manu_pdb IDENTIFIED BY "manu_pdb";
 
-DEFAULT TABLESPACE USERS;
-        
-GRANT connect, resource TO manu_pdb;
+DEFAULT TABLESPACE
+users;
+
+GRANT connect,
+      resource TO manu_pdb;
+
+GRANT
+    UNLIMITED TABLESPACE
+TO manu_pdb;
 
 ----------------------------------------Use con_SYS_PDB end---------------------------------------
