@@ -1,3 +1,4 @@
+----------------------------------------Use SYS start---------------------------------------
 show con_name;
 
 ALTER SESSION SET CONTAINER = pdb2;
@@ -6,6 +7,10 @@ show con_name;
 
 ALTER PLUGGABLE DATABASE pdb2 OPEN READ WRITE;
 
+----------------------------------------Use SYS end-------------------------------------------
+
+
+----------------------------------------Use c##manu start-------------------------------------
 show user;
 
 CREATE BLOCKCHAIN TABLE bct_t1 (
@@ -113,3 +118,5 @@ ALTER TABLE bct_t1 ADD (
 );
 
 ALTER TABLE bct_t1 DROP COLUMN quantity;
+
+----------------------------------------Use c##manu end-------------------------------------
