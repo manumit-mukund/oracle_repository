@@ -6,12 +6,13 @@ CREATE TABLE mytab_v (
 
 describe mytab_v;
 
-begin
+DECLARE
+    myvar vector;
+BEGIN
+    myvar := to_vector('[1.1, 2.2, 3.0]');
+    INSERT INTO mytab_v VALUES ( :myvar );
 
-variable myvar vector = '[1.1, 2.2, 3.0]';
-INSERT INTO mytab_v VALUES ( :myvar );
-
-end;
+END;
 /
 
 SELECT
