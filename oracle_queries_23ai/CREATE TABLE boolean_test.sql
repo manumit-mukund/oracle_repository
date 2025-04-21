@@ -16,8 +16,8 @@ INSERT INTO boolean_test (
 INSERT INTO boolean_test (
     active,
     archived
-) VALUES ( TRUE,
-           FALSE );
+) VALUES ( true,
+           false );
 
 INSERT INTO boolean_test (
     active,
