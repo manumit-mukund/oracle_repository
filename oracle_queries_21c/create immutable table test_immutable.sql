@@ -16,7 +16,7 @@ name varchar2(20),
     address      VARCHAR2(20),
     created_date DATE,
     CONSTRAINT test_immutable_pk PRIMARY KEY ( eno )
-) NO DROP UNTIL 1 DAYS IDLE NO DELETE UNTIL 1 DAYS AFTER INSERT;
+) NO DROP UNTIL 16 DAYS IDLE NO DELETE UNTIL 16 DAYS AFTER INSERT;
 desc dba_immutable_tables; 
 
 desc test_immutable;
