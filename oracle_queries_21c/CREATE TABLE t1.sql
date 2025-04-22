@@ -1,3 +1,5 @@
+DROP TABLE t1;
+
 CREATE TABLE t1 (
     id        NUMBER
         GENERATED ALWAYS AS IDENTITY,
