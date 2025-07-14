@@ -1,6 +1,6 @@
 GRANT
     CREATE SESSION,
     CREATE TABLE
-TO c##manu;
+TO manu_pdb;
 
-GRANT EXECUTE ON sys.dbms_redact TO c##manu;
+GRANT EXECUTE ON sys.dbms_redact TO manu_pdb;
