@@ -1,12 +1,11 @@
 -- run using con_SYS_21c: 
 
--- ALTER SESSION SET CONTAINER = pdb2;
-
--- GRANT SELECT ON sys.redaction_policies TO manu_pdb;
-
--- GRANT SELECT ON sys.redaction_columns TO manu_pdb;
-
--- GRANT EXECUTE ON dbms_redact TO manu_pdb;
+--GRANT
+--    CREATE SESSION,
+--    CREATE TABLE
+--TO manu_pdb;
+--
+--GRANT EXECUTE ON sys.dbms_redact TO manu_pdb;
 
 -- run using con_SYS_21c: 
 
@@ -65,9 +64,11 @@ INSERT INTO payment_details VALUES ( 5,
 
 COMMIT;
 
-ALTER SESSION SET nls_date_format = 'dd-mon-yyyy';
+ALTER SESSION SET nls_date_format = 'DD-MON-YYYY';
 
-column card_no format 9999999999999999
+COLUMN card_no FORMAT 9999999999999999
+
+SET LINESIZE 100
 
 SELECT
     *
@@ -83,12 +84,12 @@ BEGIN
         column_name   => 'card_no',
         policy_name   => 'redact_card_info',
         function_type => dbms_redact.full,
-        expression    => '1= 1 '
+        expression    => '1=1'
     );
 END;
 /
 
-ALTER SESSION SET nls_date_format = ' dd - mon - yyyy ';
+ALTER SESSION SET nls_date_format = 'dd-mon-yyyy';
 
 column card_no format 9999999999999999
 
