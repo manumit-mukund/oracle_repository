@@ -65,11 +65,9 @@ INSERT INTO payment_details VALUES ( 5,
 
 COMMIT;
 
-ALTER SESSION SET nls_date_format = 'DD-MON-YYYY';
+ALTER SESSION SET nls_date_format = 'dd-mon-yyyy';
 
-COLUMN card_no FORMAT 9999999999999999
-
-SET LINESIZE 100
+column card_no format 9999999999999999
 
 SELECT
     *
@@ -84,33 +82,15 @@ BEGIN
         object_name   => 'payment_details',
         column_name   => 'card_no',
         policy_name   => 'redact_card_info',
-        function_type => dbms_redact.nullify,
-        expression    => '1=1'
+        function_type => dbms_redact.full,
+        expression    => '1= 1 '
     );
-
-    SELECT
-        *
-    FROM
-        payment_details
-    ORDER BY
-        id;
-
-    dbms_redact.alter_policy(
-        object_schema       => 'manu_pdb',
-        object_name         => 'payment_details',
-        policy_name         => 'redact_card_info',
-        action              => dbms_redact.add_column,
-        column_name         => 'card_string',
-        function_type       => dbms_redact.partial,
-        function_parameters => dbms_redact.redact_ccn16_f12
-    );
-
 END;
 /
 
-ALTER SESSION SET nls_date_format = 'DD-MON-YYYY';
+ALTER SESSION SET nls_date_format = ' dd - mon - yyyy ';
 
-COLUMN card_no FORMAT 9999999999999999
+column card_no format 9999999999999999
 
 SELECT
     *
