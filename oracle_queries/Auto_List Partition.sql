@@ -1,4 +1,5 @@
 --------------------------------------------Start AutoList partition-----------------------------------------
+DROP TABLE sales_auto_list PURGE;
 
 CREATE TABLE sales_auto_list (
     salesman_id   NUMBER(5) NOT NULL,
