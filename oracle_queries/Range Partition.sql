@@ -1,4 +1,5 @@
 ------------------------------------------Start Range partition--------------------------------------------------------
+DROP TABLE sales_range_partition PURGE;
 
 CREATE TABLE sales_range_partition (
     product_id    NUMBER(6),
