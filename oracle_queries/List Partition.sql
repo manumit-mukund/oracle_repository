@@ -1,4 +1,5 @@
 --------------------------------------------Start List partition-----------------------------------------
+DROP TABLE sales_by_region PURGE;
 
 CREATE TABLE sales_by_region (
     product_id    NUMBER(6),
