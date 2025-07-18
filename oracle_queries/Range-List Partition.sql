@@ -1,3 +1,5 @@
+DROP TABLE my_sales_table PURGE;
+
 CREATE TABLE my_sales_table (
     invoice_id     NUMBER(16) PRIMARY KEY,
     invoice_date   DATE,
@@ -5,8 +7,11 @@ CREATE TABLE my_sales_table (
     invoice_amount NUMBER
 )
     PARTITION BY RANGE ( invoice_date ) SUBPARTITION BY LIST ( region_code )
-        SUBPARTITION TEMPLATE ( SUBPARTITION us VALUES ( 'US' ) TABLESPACE tbs_us, SUBPARTITION emea VALUES ( 'EMEA' ) TABLESPACE tbs_emea
-        , SUBPARTITION asia VALUES ( 'ASIA' ) TABLESPACE tbs_asia, SUBPARTITION others VALUES ( DEFAULT ) TABLESPACE tbs_others
+        SUBPARTITION TEMPLATE (
+            SUBPARTITION us VALUES ( 'US' ) TABLESPACE tbs_us,
+                        SUBPARTITION emea VALUES ( 'EMEA' ) TABLESPACE tbs_emea,
+                    SUBPARTITION asia VALUES ( 'ASIA' ) TABLESPACE tbs_asia,
+                SUBPARTITION others VALUES ( DEFAULT ) TABLESPACE tbs_others
         )
     ( PARTITION p_2018
         VALUES LESS THAN ( TO_DATE('01-JAN-2019', 'DD-MON-YYYY') ), PARTITION p_2019
