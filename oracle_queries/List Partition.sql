@@ -79,4 +79,9 @@ SELECT
 FROM
     sales_by_region PARTITION ( region_east );
 
+SELECT
+    *
+FROM
+    sales_by_region PARTITION ( region_central );
+
 --------------------------------------------End List partition-----------------------------------------
