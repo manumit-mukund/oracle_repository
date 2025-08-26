@@ -12,6 +12,8 @@ INSERT INTO exp_data VALUES ( '[0.424264073, 0.565685451, 0.707106829]' );
 
 INSERT INTO exp_data VALUES ( '[1, 2, 3]' );
 
+COMMIT;
+
 SELECT
     col_a
 FROM

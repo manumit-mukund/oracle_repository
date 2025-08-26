@@ -15,6 +15,8 @@ INSERT INTO mytab_v VALUES ( :plsql_flt64 );
 end;
 /
 
+commit;
+
 SELECT
     COUNT(*)
 FROM

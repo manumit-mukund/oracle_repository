@@ -6,4 +6,7 @@ BEGIN
     RETURN mytext;
 END;
 
-SELECT hello_world();
+COMMIT;
+
+SELECT
+    hello_world();
