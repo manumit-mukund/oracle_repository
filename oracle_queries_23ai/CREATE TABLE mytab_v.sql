@@ -7,15 +7,14 @@ CREATE TABLE mytab_v (
 describe mytab_v;
 
 DECLARE
-    plsql_flt64 VECTOR := to_vector('[0.64, 0.96]');
-    
-begin
-INSERT INTO mytab_v VALUES ( :plsql_flt64 );
+    plsql_flt64 vector := to_vector('[0.64, 0.96]');
+BEGIN
+    INSERT INTO mytab_v VALUES ( :plsql_flt64 );
 
-end;
+END;
 /
 
-commit;
+COMMIT;
 
 SELECT
     COUNT(*)
