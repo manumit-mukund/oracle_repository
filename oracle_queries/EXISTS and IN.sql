@@ -81,6 +81,20 @@ WHERE
         FROM
             employees
         WHERE
+            MOD(employee_id, 2) = 1
+    );
+
+SELECT
+    *
+FROM
+    employees
+WHERE
+    employee_id IN (
+        SELECT
+            employee_id
+        FROM
+            employees
+        WHERE
             employee_name LIKE 'A%'
     );
 
