@@ -65,6 +65,8 @@ INSERT INTO employees (
     FROM
         dual;
 
+COMMIT;
+
 SELECT
     *
 FROM
