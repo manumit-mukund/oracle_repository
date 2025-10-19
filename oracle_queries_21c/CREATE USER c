@@ -1,0 +1,15 @@
+CREATE USER c##manu_shard_user_21c IDENTIFIED BY manu_shard_user_21c;
+
+GRANT connect TO c##manu_shard_user_21c;
+
+GRANT connect, resource, dba TO c##manu_shard_user_21c;
+
+CREATE TABLESPACE shard1_data
+    DATAFILE 'E:\Oracle Tablespace Files\shard1_data.DBF' SIZE 50M REUSE
+    AUTOEXTEND ON NEXT 10M MAXSIZE 100M;
+
+CREATE TABLESPACE shard2_data
+    DATAFILE 'E:\Oracle Tablespace Files\shard2_data.DBF' SIZE 50M REUSE
+    AUTOEXTEND ON NEXT 10M MAXSIZE 100M;
+
+exec DBMS_GSM_ROUTING.ADD_SHARD('shard1', 'c##manu_shard_user_21c', 'localhost:1521/orcl');
