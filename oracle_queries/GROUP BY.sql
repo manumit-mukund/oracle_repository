@@ -96,3 +96,29 @@ FROM
     student
 GROUP BY
     name;
+
+SELECT
+    name,
+    course,
+    COUNT(*)
+FROM
+    student
+GROUP BY
+    course,
+    name;
+
+SELECT
+    name,
+    MIN(course_fee) AS "Lowest course_fee"
+FROM
+    student
+GROUP BY
+    name;
+
+SELECT
+    course,
+    MAX(course_fee) AS "Highest course_fee"
+FROM
+    student
+GROUP BY
+    course;
