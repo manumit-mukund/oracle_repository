@@ -67,4 +67,9 @@ SELECT
 FROM
     sales_auto_list PARTITION ( p_cal );
 
+SELECT
+    *
+FROM
+    sales_auto_list PARTITION ( sys_p3940 );
+
 --------------------------------------------End AutoList partition-----------------------------------------
