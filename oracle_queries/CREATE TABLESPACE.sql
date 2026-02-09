@@ -41,3 +41,22 @@ FROM
     user_tab_partitions
 WHERE
     table_name = 'SALES_RANGE_PARTITION';
+
+SELECT
+    owner,
+    table_name,
+    tablespace_name
+FROM
+    dba_tables
+WHERE
+    table_name = 'SALES_RANGE_PARTITION';
+
+SELECT
+    table_owner,
+    table_name,
+    partition_name,
+    tablespace_name
+FROM
+    dba_tab_partitions
+WHERE
+    table_name = 'SALES_RANGE_PARTITION';
