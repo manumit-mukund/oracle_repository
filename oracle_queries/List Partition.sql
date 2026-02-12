@@ -1,4 +1,21 @@
---------------------------------------------Start List partition-----------------------------------------
+CREATE TABLESPACE list_ptn_1
+    DATAFILE 'E:\Oracle Tablespace Files\list_ptn_1.DBF' SIZE 500M REUSE
+    AUTOEXTEND ON NEXT 100M MAXSIZE 1000M;
+
+CREATE TABLESPACE list_ptn_2
+    DATAFILE 'E:\Oracle Tablespace Files\list_ptn_2.DBF' SIZE 500M REUSE
+    AUTOEXTEND ON NEXT 100M MAXSIZE 1000M;
+
+CREATE TABLESPACE list_ptn_3
+    DATAFILE 'E:\Oracle Tablespace Files\list_ptn_3.DBF' SIZE 500M REUSE
+    AUTOEXTEND ON NEXT 100M MAXSIZE 1000M;
+
+CREATE TABLESPACE list_ptn_4
+    DATAFILE 'E:\Oracle Tablespace Files\list_ptn_4.DBF' SIZE 500M REUSE
+    AUTOEXTEND ON NEXT 100M MAXSIZE 1000M;
+    
+    --------------------------------------------Start List partition-----------------------------------------
+
 DROP TABLE sales_by_region PURGE;
 
 CREATE TABLE sales_by_region (
@@ -16,7 +33,8 @@ CREATE TABLE sales_by_region (
                                                                       'NJ',
                                                                       'NY',
                                                                       'PA',
-                                                                      'VA' ),
+                                                                      'VA' )
+    TABLESPACE list_ptn_1,
         PARTITION region_west VALUES ( 'AZ',
                                        'CA',
                                        'CO',
@@ -24,7 +42,8 @@ CREATE TABLE sales_by_region (
                                        'NV',
                                        'OR',
                                        'UT',
-                                       'WA' ),
+                                       'WA' )
+        TABLESPACE list_ptn_2,
         PARTITION region_south VALUES ( 'AL',
                                         'AR',
                                         'GA',
@@ -32,7 +51,8 @@ CREATE TABLE sales_by_region (
                                         'LA',
                                         'MS',
                                         'TN',
-                                        'TX' ),
+                                        'TX' )
+        TABLESPACE list_ptn_3,
         PARTITION region_central VALUES ( 'IA',
                                           'IL',
                                           'MO',
@@ -40,6 +60,7 @@ CREATE TABLE sales_by_region (
                                           'ND',
                                           'OH',
                                           'SD' )
+        TABLESPACE list_ptn_4
     );
 
 SELECT
@@ -68,6 +89,28 @@ INSERT INTO sales_by_region VALUES ( 1002,
                                      '26-AUG-2014',
                                      'My Store OK',
                                      'OK' );
+
+SELECT
+    *
+FROM
+    dba_data_files;
+
+SELECT
+    partition_name,
+    num_rows
+FROM
+    user_tab_partitions
+WHERE
+    table_name = 'SALES_BY_REGION'
+ORDER BY
+    partition_position;
+
+SELECT
+    *
+FROM
+    dba_tab_partitions
+WHERE
+    table_name = 'SALES_BY_REGION';
 
 SELECT
     *
