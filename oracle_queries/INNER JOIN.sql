@@ -1,10 +1,10 @@
-CREATE TABLE employees (
+CREATE TABLE employee_department (
     emp_id   NUMBER PRIMARY KEY,
     emp_name VARCHAR2(100),
     dept_id  NUMBER
 );
 
-INSERT INTO employees (
+INSERT INTO employee_department (
     emp_id,
     emp_name,
     dept_id
@@ -12,7 +12,7 @@ INSERT INTO employees (
            'Alice',
            10 );
 
-INSERT INTO employees (
+INSERT INTO employee_department (
     emp_id,
     emp_name,
     dept_id
@@ -20,7 +20,7 @@ INSERT INTO employees (
            'Bob',
            20 );
 
-INSERT INTO employees (
+INSERT INTO employee_department (
     emp_id,
     emp_name,
     dept_id
@@ -28,7 +28,7 @@ INSERT INTO employees (
            'Charlie',
            10 );
 
-INSERT INTO employees (
+INSERT INTO employee_department (
     emp_id,
     emp_name,
     dept_id
@@ -36,7 +36,7 @@ INSERT INTO employees (
            'David',
            30 );
 
-INSERT INTO employees (
+INSERT INTO employee_department (
     emp_id,
     emp_name,
     dept_id
@@ -47,7 +47,7 @@ INSERT INTO employees (
 SELECT
     *
 FROM
-    employees;
+    employee_department;
 
 CREATE TABLE departments (
     dept_id   NUMBER PRIMARY KEY,
@@ -87,5 +87,5 @@ SELECT
     e.emp_name,
     d.dept_name
 FROM
-         employees e
+         employee_department e
     INNER JOIN departments d ON e.dept_id = d.dept_id;
