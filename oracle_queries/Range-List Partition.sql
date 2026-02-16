@@ -65,6 +65,11 @@ FROM
 SELECT
     *
 FROM
+    sales PARTITION ( p_max );
+
+SELECT
+    *
+FROM
     sales SUBPARTITION ( p_2023_north );
 
 SELECT
