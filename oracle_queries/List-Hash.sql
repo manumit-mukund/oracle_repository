@@ -42,9 +42,9 @@ END;
 
 EXEC DBMS_STATS.gather_table_stats(USER, 'LIST_HASH_TAB', granularity=>'ALL');
 
-COLUMN list_hash_tab FORMAT A20
-COLUMN part_aa FORMAT A20
-COLUMN part_aa_01 FORMAT A20
+COLUMN table_name FORMAT A20
+COLUMN partition_name FORMAT A20
+COLUMN subpartition_name FORMAT A20
 
 SELECT
     table_name,
