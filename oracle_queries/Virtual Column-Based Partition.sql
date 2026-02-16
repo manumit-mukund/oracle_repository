@@ -3,7 +3,7 @@ DROP TABLE users;
 CREATE TABLE users (
     id           NUMBER,
     username     VARCHAR2(20),
-        first_letter VARCHAR2(2) GENERATED ALWAYS AS ( upper(substr(
+        first_letter VARCHAR2(4) GENERATED ALWAYS AS ( upper(substr(
             trim(username),
             1,
             1
@@ -110,3 +110,8 @@ SELECT
     *
 FROM
     users PARTITION ( part_a_g );
+
+SELECT
+    *
+FROM
+    users PARTITION ( part_h_n );
