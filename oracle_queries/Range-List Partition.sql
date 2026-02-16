@@ -1,54 +1,47 @@
-DROP TABLESPACE tbs_us INCLUDING CONTENTS CASCADE CONSTRAINTS;
+DROP TABLE sales;
 
-DROP TABLESPACE tbs_emea INCLUDING CONTENTS CASCADE CONSTRAINTS;
-
-DROP TABLESPACE tbs_asia INCLUDING CONTENTS CASCADE CONSTRAINTS;
-
-DROP TABLESPACE tbs_others INCLUDING CONTENTS CASCADE CONSTRAINTS;
-
-CREATE TABLESPACE tbs_us
-    DATAFILE 'E:\Oracle Tablespace Files\tbs_us.DBF' SIZE 500M REUSE
-    AUTOEXTEND ON NEXT 100M MAXSIZE 1000M;
-
-CREATE TABLESPACE tbs_emea
-    DATAFILE 'E:\Oracle Tablespace Files\tbs_emea.DBF' SIZE 500M REUSE
-    AUTOEXTEND ON NEXT 100M MAXSIZE 1000M;
-
-CREATE TABLESPACE tbs_asia
-    DATAFILE 'E:\Oracle Tablespace Files\tbs_asia.DBF' SIZE 500M REUSE
-    AUTOEXTEND ON NEXT 100M MAXSIZE 1000M;
-
-CREATE TABLESPACE tbs_others
-    DATAFILE 'E:\Oracle Tablespace Files\tbs_others.DBF' SIZE 500M REUSE
-    AUTOEXTEND ON NEXT 100M MAXSIZE 1000M;
-
-DROP TABLE my_sales_table PURGE;
-
-CREATE TABLE my_sales_table (
-    invoice_id     NUMBER(16) PRIMARY KEY,
-    invoice_date   DATE,
-    region_code    VARCHAR2(5),
-    invoice_amount NUMBER
+CREATE TABLE sales (
+    sale_id   NUMBER,
+    sale_date DATE,
+    region    VARCHAR2(20),
+    amount    NUMBER
 )
-    PARTITION BY RANGE ( invoice_date ) SUBPARTITION BY LIST ( region_code )
-        SUBPARTITION TEMPLATE (
-            SUBPARTITION us VALUES ( 'US' ) TABLESPACE tbs_us,
-                        SUBPARTITION emea VALUES ( 'EMEA' ) TABLESPACE tbs_emea,
-                    SUBPARTITION asia VALUES ( 'ASIA' ) TABLESPACE tbs_asia,
-                SUBPARTITION others VALUES ( DEFAULT ) TABLESPACE tbs_others
+    PARTITION BY RANGE ( sale_date ) SUBPARTITION BY LIST ( region ) ( PARTITION p_2023
+        VALUES LESS THAN ( DATE '2024-01-01' )
+    (
+        SUBPARTITION p_2023_north VALUES ( 'NORTH' ),
+        SUBPARTITION p_2023_south VALUES ( 'SOUTH' ),
+        SUBPARTITION p_2023_other VALUES ( DEFAULT )
+    ), PARTITION p_2024
+        VALUES LESS THAN ( DATE '2025-01-01' )
+    (
+        SUBPARTITION p_2024_north VALUES ( 'NORTH' ),
+        SUBPARTITION p_2024_south VALUES ( 'SOUTH' ),
+        SUBPARTITION p_2024_other VALUES ( DEFAULT )
+    ), PARTITION p_max
+        VALUES LESS THAN (
+            MAXVALUE
         )
-    ( PARTITION p_2018
-        VALUES LESS THAN ( TO_DATE('01-JAN-2019', 'DD-MON-YYYY') ), PARTITION p_2019
-        VALUES LESS THAN ( TO_DATE('01-JAN-2020', 'DD-MON-YYYY') )
-    );
+    (
+        SUBPARTITION p_max_north VALUES ( 'NORTH' ),
+        SUBPARTITION p_max_south VALUES ( 'SOUTH' ),
+        SUBPARTITION p_max_other VALUES ( DEFAULT )
+    ) );
 
-ALTER DATABASE DATAFILE 'E:\Oracle Tablespace Files\tbs_us.DBF' RESIZE 3000M;
+INSERT INTO sales VALUES ( 1,
+                           DATE '2023-05-10',
+                           'NORTH',
+                           1000 );
 
-ALTER DATABASE DATAFILE 'E:\Oracle Tablespace Files\tbs_emea.DBF' RESIZE 3000M;
+INSERT INTO sales VALUES ( 2,
+                           DATE '2024-02-15',
+                           'SOUTH',
+                           2000 );
 
-ALTER DATABASE DATAFILE 'E:\Oracle Tablespace Files\tbs_asia.DBF' RESIZE 3000M;
-
-ALTER DATABASE DATAFILE 'E:\Oracle Tablespace Files\tbs_others.DBF' RESIZE 3000M;
+INSERT INTO sales VALUES ( 3,
+                           DATE '2025-01-01',
+                           'EAST',
+                           1500 );
 
 SELECT
     table_name,
@@ -57,18 +50,24 @@ SELECT
 FROM
     user_tab_subpartitions
 WHERE
-    table_name = 'MY_SALES_TABLE';
+    table_name = 'SALES';
 
 SELECT
-    segment_name,
-    segment_type,
-    partition_name,
-    tablespace_name
+    *
 FROM
-    user_segments
-WHERE
-    segment_name = 'MY_SALES_TABLE'
-ORDER BY
-    1,
-    2,
-    3;
+    sales PARTITION ( p_2023 );
+
+SELECT
+    *
+FROM
+    sales PARTITION ( p_2024 );
+
+SELECT
+    *
+FROM
+    sales SUBPARTITION ( p_2023_north );
+
+SELECT
+    *
+FROM
+    sales SUBPARTITION ( p_2024_south );
