@@ -38,3 +38,13 @@ WHERE
 ORDER BY
     table_name,
     partition_name;
+
+SELECT
+    *
+FROM
+    system_partitioned_tab PARTITION ( part_1 );
+
+SELECT
+    *
+FROM
+    system_partitioned_tab PARTITION ( part_2 );
