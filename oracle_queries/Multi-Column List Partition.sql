@@ -93,3 +93,13 @@ WHERE
 ORDER BY
     1,
     2;
+
+SELECT
+    *
+FROM
+    t1 PARTITION ( part_gbr_abc );
+
+SELECT
+    *
+FROM
+    t1 PARTITION ( part_ire_ab );
