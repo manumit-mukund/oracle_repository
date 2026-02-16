@@ -107,3 +107,13 @@ SELECT
     *
 FROM
     parent_tab PARTITION ( part_2008 );
+
+SELECT
+    *
+FROM
+    child_tab PARTITION ( part_2007 );
+
+SELECT
+    *
+FROM
+    child_tab PARTITION ( part_2008 );
