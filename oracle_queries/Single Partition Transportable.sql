@@ -2,13 +2,15 @@ DROP TABLESPACE transport_test_ts_1 INCLUDING CONTENTS CASCADE CONSTRAINTS;
 
 DROP TABLESPACE transport_test_ts_2 INCLUDING CONTENTS CASCADE CONSTRAINTS;
 
+DROP TABLE transport_test_tab;
+
 CREATE TABLESPACE transport_test_ts_1
-    DATAFILE 'E:\Oracle Tablespace Files\tt_ts_1.DBF' SIZE 128K
-    AUTOEXTEND ON NEXT 128K;
+    DATAFILE 'E:\Oracle Tablespace Files\transport_test_ts_1.DBF' SIZE 500M
+    AUTOEXTEND ON NEXT 100M;
 
 CREATE TABLESPACE transport_test_ts_2
-    DATAFILE 'E:\Oracle Tablespace Files\tt_ts_2.DBF' SIZE 128K
-    AUTOEXTEND ON NEXT 128K;
+    DATAFILE 'E:\Oracle Tablespace Files\transport_test_ts_2.DBF' SIZE 500M
+    AUTOEXTEND ON NEXT 100M;
 
 ALTER USER c##manu
     QUOTA UNLIMITED ON transport_test_ts_1
@@ -25,10 +27,10 @@ CREATE TABLE transport_test_tab (
         created_date
     )
     ( PARTITION part_2007
-        VALUES LESS THAN ( TO_DATE('01-JAN-2008', 'DD-MON-YYYY') )
+        VALUES LESS THAN ( TO_DATE('01-JAN-2027', 'DD-MON-YYYY') )
     TABLESPACE transport_test_ts_1,
     PARTITION part_2008
-        VALUES LESS THAN ( TO_DATE('01-JAN-2009', 'DD-MON-YYYY') )
+        VALUES LESS THAN ( TO_DATE('01-JAN-2028', 'DD-MON-YYYY') )
     TABLESPACE transport_test_ts_2 );
 
 INSERT INTO transport_test_tab VALUES ( 1,
@@ -68,3 +70,13 @@ FROM
     user_tab_partitions
 WHERE
     table_name = 'TRANSPORT_TEST_TAB';
+
+SELECT
+    *
+FROM
+    transport_test_tab PARTITION ( part_2007 );
+
+SELECT
+    *
+FROM
+    transport_test_tab PARTITION ( part_2008 );
