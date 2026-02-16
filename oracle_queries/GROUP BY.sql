@@ -1,3 +1,5 @@
+DROP TABLE student;
+
 CREATE TABLE student (
     name       VARCHAR(50),
     course_fee DECIMAL(10, 2),
@@ -83,6 +85,8 @@ INSERT INTO student (
 ) VALUES ( 'Ben',
            8300.00,
            'English' );
+
+COMMIT;
 
 SELECT
     *
