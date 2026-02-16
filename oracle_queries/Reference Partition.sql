@@ -13,9 +13,9 @@ CREATE TABLE parent_tab (
         created_date
     )
     ( PARTITION part_2007
-        VALUES LESS THAN ( TO_DATE('01-JAN-2008', 'DD-MON-YYYY') ),
+        VALUES LESS THAN ( TO_DATE('01-MAR-2026', 'DD-MON-YYYY') ),
     PARTITION part_2008
-        VALUES LESS THAN ( TO_DATE('01-JAN-2009', 'DD-MON-YYYY') )
+        VALUES LESS THAN ( TO_DATE('01-MAR-2027', 'DD-MON-YYYY') )
     );
 
 CREATE TABLE child_tab (
@@ -97,3 +97,13 @@ WHERE
 ORDER BY
     table_name,
     partition_name;
+
+SELECT
+    *
+FROM
+    parent_tab PARTITION ( part_2007 );
+
+SELECT
+    *
+FROM
+    parent_tab PARTITION ( part_2008 );
