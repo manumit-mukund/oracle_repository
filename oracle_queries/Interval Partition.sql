@@ -1,3 +1,5 @@
+DROP TABLE interval_tab;
+
 CREATE TABLE interval_tab (
     id           NUMBER,
     code         VARCHAR2(10),
@@ -13,9 +15,9 @@ CREATE TABLE interval_tab (
 EXEC DBMS_STATS . GATHER_TABLE_STATS ( USER , 'INTERVAL_TAB'
 ) ;
 
-COLUMN TABLE_NAME FORMAT A20 
-COLUMN PARTITION_NAME FORMAT A20 
-COLUMN HIGH_VALUE FORMAT A40
+COLUMN table_name FORMAT A20
+COLUMN partition_name FORMAT A20
+COLUMN high_value FORMAT A40
 
 SELECT
     table_name,

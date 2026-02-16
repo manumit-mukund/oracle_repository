@@ -59,3 +59,18 @@ ORDER BY
     table_name,
     partition_name,
     subpartition_name;
+
+SELECT
+    *
+FROM
+    list_hash_tab PARTITION ( part_aa );
+
+SELECT
+    *
+FROM
+    list_hash_tab SUBPARTITION ( part_aa_01 );
+
+SELECT
+    *
+FROM
+    list_hash_tab SUBPARTITION ( part_aa_02 );
