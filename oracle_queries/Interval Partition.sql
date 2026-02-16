@@ -139,3 +139,18 @@ WHERE
 ORDER BY
     table_name,
     partition_name;
+
+SELECT
+    *
+FROM
+    interval_tab PARTITION ( part_01 );
+
+SELECT
+    *
+FROM
+    interval_tab PARTITION ( sys_p7317 );
+
+SELECT
+    *
+FROM
+    interval_tab PARTITION ( sys_p7318 );
