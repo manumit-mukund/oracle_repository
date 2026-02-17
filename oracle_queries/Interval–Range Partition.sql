@@ -66,9 +66,14 @@ WHERE
 SELECT
     *
 FROM
-    sales_data SUBPARTITION ( P_BEFORE_2025_SP_LOW );
+    sales_data PARTITION ( p_before_2025 );
 
 SELECT
     *
 FROM
-    sales_data SUBPARTITION ( P_BEFORE_2025_SP_HIGH );
+    sales_data SUBPARTITION ( p_before_2025_sp_low );
+
+SELECT
+    *
+FROM
+    sales_data SUBPARTITION ( p_before_2025_sp_high );
