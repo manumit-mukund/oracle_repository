@@ -23,6 +23,11 @@ INSERT INTO student_enroll VALUES ( 102,
                                     'Jones' );
 -- Update anomaly: If Jones changes subject, both rows must be updated.
 
+SELECT
+    *
+FROM
+    student_enroll;
+
 -- Table 1: Professor_Subject
 CREATE TABLE professor_subject (
     professor VARCHAR2(50) PRIMARY KEY,
@@ -48,11 +53,6 @@ INSERT INTO student_professor VALUES ( 101,
 
 INSERT INTO student_professor VALUES ( 102,
                                        'Jones' );
-
-SELECT
-    *
-FROM
-    student_enroll;
 
 SELECT
     *
