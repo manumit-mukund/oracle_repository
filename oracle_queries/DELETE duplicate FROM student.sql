@@ -1,3 +1,46 @@
+CREATE TABLE student (
+    subject VARCHAR2(50),
+    year    NUMBER,
+    name    VARCHAR2(50)
+);
+
+INSERT INTO student (
+    subject,
+    year,
+    name
+) VALUES ( 'Maths',
+           2024,
+           'S1' );
+
+INSERT INTO student (
+    subject,
+    year,
+    name
+) VALUES ( 'Physics',
+           2025,
+           'S2' );
+
+INSERT INTO student (
+    subject,
+    year,
+    name
+) VALUES ( 'Chemistry',
+           2026,
+           'S3' );
+
+INSERT INTO student (
+    subject,
+    year,
+    name
+) VALUES ( 'Maths',
+           2024,
+           'S1' );
+
+SELECT
+    *
+FROM
+    student;
+
 SELECT
     *
 FROM
