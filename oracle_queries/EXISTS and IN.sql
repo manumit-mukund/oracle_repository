@@ -1,3 +1,5 @@
+DROP TABLE employees;
+
 CREATE TABLE employees (
     employee_id   NUMBER(10) NOT NULL,
     employee_name VARCHAR2(50) NOT NULL,
@@ -11,56 +13,56 @@ INSERT INTO employees (
 )
     SELECT
         1,
-        'Jack',
+        'E1',
         2
     FROM
         dual
     UNION ALL
     SELECT
         2,
-        'Jill',
+        'M1',
         NULL
     FROM
         dual
     UNION ALL
     SELECT
         3,
-        'Jim',
+        'M2',
         NULL
     FROM
         dual
     UNION ALL
     SELECT
         4,
-        'Bill',
+        'E2',
         3
     FROM
         dual
     UNION ALL
     SELECT
         5,
-        'Ben',
+        'M3',
         NULL
     FROM
         dual
     UNION ALL
     SELECT
         6,
-        'Alex',
+        'E3',
         2
     FROM
         dual
     UNION ALL
     SELECT
         7,
-        'Andrew',
+        'E4',
         5
     FROM
         dual
     UNION ALL
     SELECT
         8,
-        'Chris',
+        'E5',
         5
     FROM
         dual;
