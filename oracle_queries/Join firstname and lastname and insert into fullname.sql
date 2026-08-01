@@ -4,7 +4,7 @@ CREATE TABLE users (
     user_id    NUMBER PRIMARY KEY,
     first_name VARCHAR2(50),
     last_name  VARCHAR2(50),
-    full_name  VARCHAR2(50)
+    full_name  VARCHAR2(100)
 );
 
 INSERT INTO users (
