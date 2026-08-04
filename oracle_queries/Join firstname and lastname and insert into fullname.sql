@@ -20,7 +20,7 @@ INSERT INTO users (
     first_name,
     last_name
 ) VALUES ( 2,
-           'f2',
+           'F2',
            'L2' );
 
 INSERT INTO users (
