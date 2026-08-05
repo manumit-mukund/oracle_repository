@@ -9,16 +9,17 @@ ALTER PLUGGABLE DATABASE pdb2 OPEN READ WRITE;
 
 ----------------------------------------Use con_SYS_PDB end-------------------------------------------
 
-
 ----------------------------------------Use con_manu_pdb start-------------------------------------
 show user;
 
-CREATE BLOCKCHAIN TABLE bct_t1 (
+DROP TABLE blockchain_test;
+
+CREATE BLOCKCHAIN TABLE blockchain_test (
     id           NUMBER,
     fruit        VARCHAR2(20),
     quantity     NUMBER,
     created_date DATE,
-    CONSTRAINT bct_t1_pk PRIMARY KEY ( id )
+    CONSTRAINT pk_id PRIMARY KEY ( id )
 )
     NO DROP UNTIL 0 DAYS IDLE
     NO DELETE UNTIL 16 DAYS AFTER INSERT
@@ -39,7 +40,7 @@ SELECT
 FROM
     user_tab_cols
 WHERE
-    table_name = 'BCT_T1'
+    table_name = 'BLOCKCHAIN_TEST'
 ORDER BY
     internal_column_id;
 
@@ -56,67 +57,67 @@ SELECT
 FROM
     user_blockchain_tables
 WHERE
-    table_name = 'BCT_T1';
+    table_name = 'BLOCKCHAIN_TEST';
 
-INSERT INTO bct_t1 (
+INSERT INTO blockchain_test (
     id,
     fruit,
     quantity,
     created_date
 ) VALUES ( 1,
-           'apple',
-           20,
+           'mango',
+           10,
            sysdate );
 
-INSERT INTO bct_t1 (
+INSERT INTO blockchain_test (
     id,
     fruit,
     quantity,
     created_date
 ) VALUES ( 2,
-           'pomegranate',
-           30,
+           'banana',
+           20,
            sysdate );
 
 SELECT
     *
 FROM
-    bct_t1;
+    blockchain_test;
 
-UPDATE bct_t1
+UPDATE blockchain_test
 SET
-    quantity = 10
+    quantity = 11
 WHERE
     id = 1;
 
-UPDATE bct_t1
+UPDATE blockchain_test
 SET
-    quantity = 40
+    quantity = 21
 WHERE
     id = 2;
 
-DELETE FROM bct_t1
+DELETE FROM blockchain_test
 WHERE
     id = 1;
 
-TRUNCATE TABLE bct_t1;
+TRUNCATE TABLE blockchain_test;
 
-ALTER TABLE bct_t1 MODIFY (
+ALTER TABLE blockchain_test MODIFY (
     fruit VARCHAR2(25)
 );
 
-ALTER TABLE bct_t1 MODIFY (
+ALTER TABLE blockchain_test MODIFY (
     fruit VARCHAR2(15)
 );
 
-ALTER TABLE bct_t1 MODIFY (
+ALTER TABLE blockchain_test MODIFY (
     fruit VARCHAR2(9)
 );
 
-ALTER TABLE bct_t1 ADD (
+ALTER TABLE blockchain_test ADD (
     additional_info VARCHAR2(50)
 );
 
-ALTER TABLE bct_t1 DROP COLUMN quantity;
+ALTER TABLE blockchain_test DROP COLUMN quantity;
 
 ----------------------------------------Use con_manu_pdb end-------------------------------------
