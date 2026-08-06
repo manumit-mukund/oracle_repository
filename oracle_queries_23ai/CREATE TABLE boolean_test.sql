@@ -16,8 +16,8 @@ INSERT INTO boolean_test (
 INSERT INTO boolean_test (
     active,
     archived
-) VALUES ( true,
-           false );
+) VALUES ( 'TRUE',
+           'FALSE' );
 
 INSERT INTO boolean_test (
     active,
@@ -28,8 +28,8 @@ INSERT INTO boolean_test (
 INSERT INTO boolean_test (
     active,
     archived
-) VALUES ( 'TRUE',
-           'FALSE' );
+) VALUES ( 'YES',
+           'NO' );
 
 INSERT INTO boolean_test (
     active,
@@ -40,20 +40,14 @@ INSERT INTO boolean_test (
 INSERT INTO boolean_test (
     active,
     archived
-) VALUES ( 'YES',
-           'NO' );
+) VALUES ( 'ON',
+           'OFF' );
 
 INSERT INTO boolean_test (
     active,
     archived
 ) VALUES ( 'on',
            'off' );
-
-INSERT INTO boolean_test (
-    active,
-    archived
-) VALUES ( 'ON',
-           'OFF' );
 
 INSERT INTO boolean_test (
     active,
@@ -70,26 +64,26 @@ INSERT INTO boolean_test (
 INSERT INTO boolean_test (
     active,
     archived
-) VALUES ( 't',
-           'f' );
-
-INSERT INTO boolean_test (
-    active,
-    archived
 ) VALUES ( 'T',
            'F' );
 
 INSERT INTO boolean_test (
     active,
     archived
-) VALUES ( 'y',
-           'n' );
+) VALUES ( 't',
+           'f' );
 
 INSERT INTO boolean_test (
     active,
     archived
 ) VALUES ( 'Y',
            'N' );
+
+INSERT INTO boolean_test (
+    active,
+    archived
+) VALUES ( 'y',
+           'n' );
 
 COMMIT;
 
