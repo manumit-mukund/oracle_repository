@@ -1,10 +1,12 @@
-----------------------------------------Use con_SYS_PDB start---------------------------------------
+----------------------------------------connect to SYS of PDB2 (coonection name on my machine: con_SYS_PDB_21c)---------------------------------------
 
 show pdbs;
 
 show con_name;
 
 show user;
+
+DROP USER manu_pdb; -- if already exists
 
 CREATE USER manu_pdb IDENTIFIED BY "manu_pdb";
 
@@ -18,4 +20,8 @@ GRANT
     UNLIMITED TABLESPACE
 TO manu_pdb;
 
-----------------------------------------Use con_SYS_PDB end---------------------------------------
+GRANT
+    RESTRICTED SESSION
+TO manu_pdb;
+
+----------------------------------------connect to SYS of PDB2 (coonection name on my machine: con_SYS_PDB_21c)--------------------------------------
