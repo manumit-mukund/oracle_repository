@@ -1,39 +1,42 @@
-DROP TABLE temp_employee;
+DROP TABLE temp_employee; -- if already exists
 
 CREATE TABLE temp_employee (
-    id         NUMBER(5),
+    eid        NUMBER(5),
     empname    VARCHAR2(100),
     age        NUMBER(5),
-    empaddress VARCHAR2(100)
+    empaddress VARCHAR2(100),
+    CONSTRAINT pk_eid PRIMARY KEY ( eid )
 );
 
-INSERT INTO temp_employee VALUES (
-    1,
-    'XYZ',
-    25,
-    'new road '
-);
+INSERT INTO temp_employee VALUES ( 1,
+                                   'A1',
+                                   25,
+                                   'New Delhi' );
 
-INSERT INTO temp_employee VALUES (
-    2,
-    'ABC',
-    28,
-    'old road'
-);
+INSERT INTO temp_employee VALUES ( 2,
+                                   'E2',
+                                   30,
+                                   'New Delhi' );
 
-INSERT INTO temp_employee VALUES (
-    3,
-    'AAB',
-    35,
-    'sector 23'
-);
+INSERT INTO temp_employee VALUES ( 3,
+                                   'E3',
+                                   30,
+                                   'Patna' );
 
-INSERT INTO temp_employee VALUES (
-    4,
-    'CBC',
-    25,
-    'sector 24'
-);
+INSERT INTO temp_employee VALUES ( 4,
+                                   'B4',
+                                   50,
+                                   'Patna' );
+
+INSERT INTO temp_employee VALUES ( 5,
+                                   'B5',
+                                   50,
+                                   'Patna' );
+
+INSERT INTO temp_employee VALUES ( 6,
+                                   'B6',
+                                   60,
+                                   'Patna' );
 
 SELECT
     *
@@ -45,7 +48,7 @@ SELECT
 FROM
     temp_employee
 WHERE
-    id > 2;
+    eid > 2;
 
 SELECT
     *
