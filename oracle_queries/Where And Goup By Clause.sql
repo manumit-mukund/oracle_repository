@@ -36,7 +36,7 @@ INSERT INTO temp_employee VALUES ( 5,
 INSERT INTO temp_employee VALUES ( 6,
                                    'B6',
                                    60,
-                                   'Patna' );
+                                   'Chennai' );
 
 SELECT
     *
