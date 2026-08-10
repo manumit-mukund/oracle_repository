@@ -17,6 +17,8 @@ CREATE TABLESPACE range_ptn_4
     DATAFILE 'E:\Oracle Tablespace Files\range_ptn_4.DBF' SIZE 500M REUSE
     AUTOEXTEND ON NEXT 100M MAXSIZE 1000M;
 
+DROP TABLE sales_range_partition; -- drop table if exists
+
 CREATE TABLE sales_range_partition (
     product_id    NUMBER(6),
     customer_id   NUMBER,
@@ -30,14 +32,17 @@ CREATE TABLE sales_range_partition (
         sale_date
     )
     ( PARTITION sales_q1_2025
-        VALUES LESS THAN ( TO_DATE('01-APR-2025', 'dd-MON-yyyy') ) range_ptn_1,
+        VALUES LESS THAN ( TO_DATE('01-APR-2025', 'dd-MON-yyyy') )
+    TABLESPACE range_ptn_1,
     PARTITION sales_q2_2025
-        VALUES LESS THAN ( TO_DATE('01-JUL-2025', 'dd-MON-yyyy') ) range_ptn_2,
+        VALUES LESS THAN ( TO_DATE('01-JUL-2025', 'dd-MON-yyyy') )
+    TABLESPACE range_ptn_2,
     PARTITION sales_q3_2025
-        VALUES LESS THAN ( TO_DATE('01-OCT-2025', 'dd-MON-yyyy') ) range_ptn_3,
+        VALUES LESS THAN ( TO_DATE('01-OCT-2025', 'dd-MON-yyyy') )
+    TABLESPACE range_ptn_3,
     PARTITION sales_q4_2025
-        VALUES LESS THAN ( TO_DATE('01-JAN-2026', 'dd-MON-yyyy') ) range_ptn_4
-    );
+        VALUES LESS THAN ( TO_DATE('01-JAN-2026', 'dd-MON-yyyy') )
+    TABLESPACE range_ptn_4 );
 
 SELECT
     table_name,
