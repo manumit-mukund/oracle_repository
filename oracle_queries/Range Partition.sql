@@ -1,6 +1,14 @@
 ------------------------------------------Start Range partition--------------------------------------------------------
 DROP TABLE sales_range_partition PURGE;
 
+DROP TABLESPACE range_ptn_1 INCLUDING CONTENTS CASCADE CONSTRAINTS;
+
+DROP TABLESPACE range_ptn_2 INCLUDING CONTENTS CASCADE CONSTRAINTS;
+
+DROP TABLESPACE range_ptn_3 INCLUDING CONTENTS CASCADE CONSTRAINTS;
+
+DROP TABLESPACE range_ptn_4 INCLUDING CONTENTS CASCADE CONSTRAINTS;
+
 CREATE TABLESPACE range_ptn_1
     DATAFILE 'E:\Oracle Tablespace Files\range_ptn_1.DBF' SIZE 500M REUSE
     AUTOEXTEND ON NEXT 100M MAXSIZE 1000M;
