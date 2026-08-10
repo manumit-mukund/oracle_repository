@@ -1,53 +1,59 @@
-CREATE TABLE employee_department (
+DROP TABLE employee_departments; -- drop table if exists
+
+CREATE TABLE employee_departments (
     emp_id   NUMBER PRIMARY KEY,
     emp_name VARCHAR2(100),
-    dept_id  NUMBER
+    dept_id  NUMBER,
+    CONSTRAINT fk_dept_id FOREIGN KEY ( dept_id )
+        REFERENCES departments ( dept_id )
 );
 
-INSERT INTO employee_department (
+INSERT INTO employee_departments (
     emp_id,
     emp_name,
     dept_id
 ) VALUES ( 1,
-           'Alice',
+           'E1',
            10 );
 
-INSERT INTO employee_department (
+INSERT INTO employee_departments (
     emp_id,
     emp_name,
     dept_id
 ) VALUES ( 2,
-           'Bob',
+           'E2',
            20 );
 
-INSERT INTO employee_department (
+INSERT INTO employee_departments (
     emp_id,
     emp_name,
     dept_id
 ) VALUES ( 3,
-           'Charlie',
+           'E3',
            10 );
 
-INSERT INTO employee_department (
+INSERT INTO employee_departments (
     emp_id,
     emp_name,
     dept_id
 ) VALUES ( 4,
-           'David',
+           'E4',
            30 );
 
-INSERT INTO employee_department (
+INSERT INTO employee_departments (
     emp_id,
     emp_name,
     dept_id
 ) VALUES ( 5,
-           'Eve',
-           NULL ); -- Eve is not assigned to a department
+           'E5',
+           NULL );
 
 SELECT
     *
 FROM
-    employee_department;
+    employee_departments;
+
+DROP TABLE departments; -- drop table if exists
 
 CREATE TABLE departments (
     dept_id   NUMBER PRIMARY KEY,
@@ -58,7 +64,7 @@ INSERT INTO departments (
     dept_id,
     dept_name
 ) VALUES ( 10,
-           'Sales' );
+           'IT' );
 
 INSERT INTO departments (
     dept_id,
@@ -70,13 +76,13 @@ INSERT INTO departments (
     dept_id,
     dept_name
 ) VALUES ( 30,
-           'IT' );
+           'HR' );
 
 INSERT INTO departments (
     dept_id,
     dept_name
 ) VALUES ( 40,
-           'HR' ); -- HR department has no employees yet
+           'FINANCE' );
 
 SELECT
     *
@@ -87,5 +93,5 @@ SELECT
     e.emp_name,
     d.dept_name
 FROM
-         employee_department e
+         employee_departments e
     INNER JOIN departments d ON e.dept_id = d.dept_id;
