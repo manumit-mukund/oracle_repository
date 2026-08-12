@@ -1,7 +1,7 @@
 DROP TABLE employees; -- srop table if exists
 
 CREATE TABLE employees (
-    employee_id   NUMBER(10) PRIMARY KEY NOT NULL,
+    employee_id   NUMBER(10) PRIMARY KEY,
     employee_name VARCHAR2(50) NOT NULL,
     manager_id    NUMBER(10)
 );
@@ -42,19 +42,19 @@ FROM
     employees;
 
 SELECT
-    e.employee_name AS manager_name,
-    m.employee_name AS employee_name
-FROM
-         employees e
-    JOIN employees m ON e.employee_id = m.manager_id
-ORDER BY
-    employee_name;
-
-SELECT
     e.employee_name AS employee_name,
     m.employee_name AS manager_name
 FROM
          employees e
     JOIN employees m ON e.manager_id = m.employee_id
+ORDER BY
+    employee_name;
+
+SELECT
+    m.employee_name AS manager_name,
+    e.employee_name AS employee_name
+FROM
+         employees m
+    JOIN employees e ON m.employee_id = e.manager_id
 ORDER BY
     employee_name;
