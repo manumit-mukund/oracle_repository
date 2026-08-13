@@ -32,13 +32,13 @@ CREATE TABLESPACE range_ptn_5
     AUTOEXTEND ON NEXT 100M MAXSIZE 1000M;
 
 CREATE TABLE sales_range_partition (
-    product_id    NUMBER(6),
-    customer_id   NUMBER,
+    product_id    NUMBER(6) NOT NULL,
+    customer_id   NUMBER NOT NULL,
     channel_id    CHAR(2),
     promo_id      NUMBER(6),
-    sale_date     DATE,
-    quantity_sold INTEGER,
-    amount_sold   NUMBER(10, 2)
+    sale_date     DATE NOT NULL,
+    quantity_sold INTEGER NOT NULL,
+    amount_sold   NUMBER(10, 2) NOT NULL
 )
     PARTITION BY RANGE (
         sale_date
