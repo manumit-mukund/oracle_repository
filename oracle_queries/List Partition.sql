@@ -1,3 +1,11 @@
+DROP TABLESPACE list_ptn_1 INCLUDING CONTENTS CASCADE CONSTRAINTS;
+
+DROP TABLESPACE list_ptn_2 INCLUDING CONTENTS CASCADE CONSTRAINTS;
+
+DROP TABLESPACE list_ptn_3 INCLUDING CONTENTS CASCADE CONSTRAINTS;
+
+DROP TABLESPACE list_ptn_4 INCLUDING CONTENTS CASCADE CONSTRAINTS;
+
 CREATE TABLESPACE list_ptn_1
     DATAFILE 'E:\Oracle Tablespace Files\list_ptn_1.DBF' SIZE 500M REUSE
     AUTOEXTEND ON NEXT 100M MAXSIZE 1000M;
@@ -25,41 +33,18 @@ CREATE TABLE sales_by_region (
     store_name    VARCHAR(30),
     state_code    VARCHAR(2)
 )
-    PARTITION BY LIST ( state_code ) ( PARTITION region_east VALUES ( 'CT',
-                                                                      'MA',
-                                                                      'MD',
-                                                                      'ME',
-                                                                      'NH',
-                                                                      'NJ',
-                                                                      'NY',
-                                                                      'PA',
-                                                                      'VA' )
+    PARTITION BY LIST ( state_code ) ( PARTITION region_east VALUES ( 'BH',
+                                                                      'JH' )
     TABLESPACE list_ptn_1,
-        PARTITION region_west VALUES ( 'AZ',
-                                       'CA',
-                                       'CO',
-                                       'NM',
-                                       'NV',
-                                       'OR',
-                                       'UT',
-                                       'WA' )
+        PARTITION region_west VALUES ( 'GO',
+                                       'GU',
+                                       'MH' )
         TABLESPACE list_ptn_2,
-        PARTITION region_south VALUES ( 'AL',
-                                        'AR',
-                                        'GA',
-                                        'KY',
-                                        'LA',
-                                        'MS',
-                                        'TN',
-                                        'TX' )
+        PARTITION region_south VALUES ( 'AP',
+                                        'KA' )
         TABLESPACE list_ptn_3,
-        PARTITION region_central VALUES ( 'IA',
-                                          'IL',
-                                          'MO',
-                                          'MI',
-                                          'ND',
-                                          'OH',
-                                          'SD' )
+        PARTITION region_central VALUES ( 'MP',
+                                          'CH' )
         TABLESPACE list_ptn_4
     );
 
@@ -73,22 +58,28 @@ FROM
 WHERE
     table_name = 'SALES_BY_REGION';
 
-ALTER TABLE sales_by_region ADD PARTITION region_nonmainland VALUES ( 'HI',
-                                                                      'PR' );
+ALTER TABLE sales_by_region ADD PARTITION region_nonmainland VALUES ( 'KE',
+                                                                      'TN' );
 
-ALTER TABLE sales_by_region MODIFY PARTITION region_central ADD VALUES ( 'OK', 'KS' );
+ALTER TABLE sales_by_region MODIFY PARTITION region_east ADD VALUES ( 'OD', 'WB' );
 
-INSERT INTO sales_by_region VALUES ( 1001,
+INSERT INTO sales_by_region VALUES ( 1,
                                      100,
-                                     '25-AUG-2014',
-                                     'My Store MA',
-                                     'MA' );
+                                     '05-AUG-2026',
+                                     'Store-MH',
+                                     'MH' );
 
-INSERT INTO sales_by_region VALUES ( 1002,
+INSERT INTO sales_by_region VALUES ( 2,
                                      200,
-                                     '26-AUG-2014',
-                                     'My Store OK',
-                                     'OK' );
+                                     '06-AUG-2014',
+                                     'Stored-OD',
+                                     'OD' );
+
+INSERT INTO sales_by_region VALUES ( 3,
+                                     300,
+                                     '06-AUG-2014',
+                                     'Stored-OD',
+                                     'MP' );
 
 SELECT
     *
@@ -121,6 +112,11 @@ SELECT
     *
 FROM
     sales_by_region PARTITION ( region_east );
+
+SELECT
+    *
+FROM
+    sales_by_region PARTITION ( region_west );
 
 SELECT
     *
