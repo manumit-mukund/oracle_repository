@@ -1,3 +1,5 @@
+DROP TABLE sales_by_region PURGE;
+
 DROP TABLESPACE list_ptn_1 INCLUDING CONTENTS CASCADE CONSTRAINTS;
 
 DROP TABLESPACE list_ptn_2 INCLUDING CONTENTS CASCADE CONSTRAINTS;
@@ -23,8 +25,6 @@ CREATE TABLESPACE list_ptn_4
     AUTOEXTEND ON NEXT 100M MAXSIZE 1000M;
     
     --------------------------------------------Start List partition-----------------------------------------
-
-DROP TABLE sales_by_region PURGE;
 
 CREATE TABLE sales_by_region (
     product_id    NUMBER(6),
@@ -58,8 +58,8 @@ FROM
 WHERE
     table_name = 'SALES_BY_REGION';
 
-ALTER TABLE sales_by_region ADD PARTITION region_nonmainland VALUES ( 'KE',
-                                                                      'TN' );
+ALTER TABLE sales_by_region ADD PARTITION region_north VALUES ( 'HP',
+                                                                'UT' );
 
 ALTER TABLE sales_by_region MODIFY PARTITION region_east ADD VALUES ( 'OD', 'WB' );
 
@@ -80,6 +80,12 @@ INSERT INTO sales_by_region VALUES ( 3,
                                      '06-AUG-2014',
                                      'Stored-OD',
                                      'MP' );
+
+INSERT INTO sales_by_region VALUES ( 4,
+                                     400,
+                                     '06-AUG-2014',
+                                     'Stored-OD',
+                                     'HP' );
 
 SELECT
     *
@@ -122,5 +128,10 @@ SELECT
     *
 FROM
     sales_by_region PARTITION ( region_central );
+
+SELECT
+    *
+FROM
+    sales_by_region PARTITION ( region_north );
 
 --------------------------------------------End List partition-----------------------------------------
