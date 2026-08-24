@@ -17,6 +17,10 @@ INSERT INTO employee_income_history
     WHERE
         created_date < trunc(sysdate) - 1;
 
+DELETE FROM employee_income
+WHERE
+    created_date < trunc(sysdate) - 1;
+
 SELECT
     *
 FROM
