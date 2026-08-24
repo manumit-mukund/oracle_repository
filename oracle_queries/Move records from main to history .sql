@@ -21,6 +21,8 @@ DELETE FROM employee_income
 WHERE
     created_date < trunc(sysdate) - 1;
 
+COMMIT;
+
 SELECT
     *
 FROM
