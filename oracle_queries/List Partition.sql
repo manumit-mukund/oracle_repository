@@ -23,6 +23,10 @@ CREATE TABLESPACE list_ptn_3
 CREATE TABLESPACE list_ptn_4
     DATAFILE 'E:\Oracle Tablespace Files\list_ptn_4.DBF' SIZE 500M REUSE
     AUTOEXTEND ON NEXT 100M MAXSIZE 1000M;
+
+CREATE TABLESPACE list_ptn_5
+    DATAFILE 'E:\Oracle Tablespace Files\list_ptn_6.DBF' SIZE 500M REUSE
+    AUTOEXTEND ON NEXT 100M MAXSIZE 1000M;
     
     --------------------------------------------Start List partition-----------------------------------------
 
@@ -59,7 +63,8 @@ WHERE
     table_name = 'SALES_BY_REGION';
 
 ALTER TABLE sales_by_region ADD PARTITION region_north VALUES ( 'HP',
-                                                                'UT' );
+                                                                'UT' )
+TABLESPACE list_ptn_5;
 
 ALTER TABLE sales_by_region MODIFY PARTITION region_east ADD VALUES ( 'OD', 'WB' );
 
@@ -71,21 +76,27 @@ INSERT INTO sales_by_region VALUES ( 1,
 
 INSERT INTO sales_by_region VALUES ( 2,
                                      200,
-                                     '06-AUG-2014',
+                                     '06-AUG-2026',
                                      'Stored-OD',
                                      'OD' );
 
 INSERT INTO sales_by_region VALUES ( 3,
                                      300,
-                                     '06-AUG-2014',
+                                     '06-AUG-2026',
                                      'Stored-OD',
                                      'MP' );
 
 INSERT INTO sales_by_region VALUES ( 4,
                                      400,
-                                     '06-AUG-2014',
+                                     '06-AUG-2026',
                                      'Stored-OD',
                                      'HP' );
+
+INSERT INTO sales_by_region VALUES ( 5,
+                                     400,
+                                     '06-AUG-2026',
+                                     'Stored-OD',
+                                     'AP' );
 
 SELECT
     *
@@ -133,5 +144,10 @@ SELECT
     *
 FROM
     sales_by_region PARTITION ( region_north );
+
+SELECT
+    *
+FROM
+    sales_by_region PARTITION ( region_south );
 
 --------------------------------------------End List partition-----------------------------------------
