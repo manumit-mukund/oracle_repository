@@ -8,6 +8,8 @@ DROP TABLESPACE list_ptn_3 INCLUDING CONTENTS CASCADE CONSTRAINTS;
 
 DROP TABLESPACE list_ptn_4 INCLUDING CONTENTS CASCADE CONSTRAINTS;
 
+DROP TABLESPACE list_ptn_5 INCLUDING CONTENTS CASCADE CONSTRAINTS;
+
 CREATE TABLESPACE list_ptn_1
     DATAFILE 'E:\Oracle Tablespace Files\list_ptn_1.DBF' SIZE 500M REUSE
     AUTOEXTEND ON NEXT 100M MAXSIZE 1000M;
@@ -25,7 +27,7 @@ CREATE TABLESPACE list_ptn_4
     AUTOEXTEND ON NEXT 100M MAXSIZE 1000M;
 
 CREATE TABLESPACE list_ptn_5
-    DATAFILE 'E:\Oracle Tablespace Files\list_ptn_6.DBF' SIZE 500M REUSE
+    DATAFILE 'E:\Oracle Tablespace Files\list_ptn_5.DBF' SIZE 500M REUSE
     AUTOEXTEND ON NEXT 100M MAXSIZE 1000M;
     
     --------------------------------------------Start List partition-----------------------------------------
