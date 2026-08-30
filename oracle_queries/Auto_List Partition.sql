@@ -8,7 +8,7 @@ CREATE TABLE sales_auto_list (
     sales_amount  NUMBER(10),
     sales_date    DATE NOT NULL
 )
-    PARTITION BY LIST ( sales_state ) AUTOMATIC ( PARTITION p_cal VALUES ( 'CALIFORNIA' ) );
+    PARTITION BY LIST ( sales_state ) AUTOMATIC ( PARTITION p_bh VALUES ( 'BIHAR' ) );
 
 SELECT
     table_name,
@@ -29,29 +29,29 @@ FROM
 WHERE
     table_name = 'SALES_AUTO_LIST';
 
-INSERT INTO sales_auto_list VALUES ( 021,
-                                     'Mary Smith',
-                                     'FLORIDA',
-                                     41000,
-                                     TO_DATE('21-DEC-2018', 'DD-MON-YYYY') );
+INSERT INTO sales_auto_list VALUES ( 1,
+                                     'SM1',
+                                     'BIHAR',
+                                     1000,
+                                     TO_DATE('21-DEC-2025', 'DD-MON-YYYY') );
 
-INSERT INTO sales_auto_list VALUES ( 032,
-                                     'Luis Vargas',
-                                     'MICHIGAN',
-                                     42000,
-                                     TO_DATE('31-DEC-2018', 'DD-MON-YYYY') );
+INSERT INTO sales_auto_list VALUES ( 2,
+                                     'SM2',
+                                     'JHARKHAND',
+                                     2000,
+                                     TO_DATE('31-DEC-2025', 'DD-MON-YYYY') );
 
-INSERT INTO sales_auto_list VALUES ( 015,
-                                     'Simone Blair',
-                                     'CALIFORNIA',
-                                     45000,
-                                     TO_DATE('11-JAN-2019', 'DD-MON-YYYY') );
+INSERT INTO sales_auto_list VALUES ( 3,
+                                     'SM2',
+                                     'WEST BENGAL',
+                                     3000,
+                                     TO_DATE('11-JAN-2026', 'DD-MON-YYYY') );
 
-INSERT INTO sales_auto_list VALUES ( 015,
-                                     'Simone Blair',
-                                     'OREGON',
-                                     38000,
-                                     TO_DATE('18-JAN-2019', 'DD-MON-YYYY') );
+INSERT INTO sales_auto_list VALUES ( 4,
+                                     'SM3',
+                                     'BIHAR',
+                                     4000,
+                                     TO_DATE('18-JAN-2026', 'DD-MON-YYYY') );
 
 SELECT
     table_name,
@@ -65,11 +65,11 @@ WHERE
 SELECT
     *
 FROM
-    sales_auto_list PARTITION ( p_cal );
+    sales_auto_list PARTITION ( p_bh );
 
 SELECT
     *
 FROM
-    sales_auto_list PARTITION ( sys_p3940 );
+    sales_auto_list PARTITION ( sys_p10093 ); -- 'sys_p10093' may vary based on the name prvided by the Oracle
 
 --------------------------------------------End AutoList partition-----------------------------------------
