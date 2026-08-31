@@ -42,7 +42,7 @@ INSERT INTO sales_auto_list VALUES ( 2,
                                      TO_DATE('31-DEC-2025', 'DD-MON-YYYY') );
 
 INSERT INTO sales_auto_list VALUES ( 3,
-                                     'SM2',
+                                     'SM3',
                                      'WEST BENGAL',
                                      3000,
                                      TO_DATE('11-JAN-2026', 'DD-MON-YYYY') );
@@ -70,6 +70,6 @@ FROM
 SELECT
     *
 FROM
-    sales_auto_list PARTITION ( sys_p10093 ); -- 'sys_p10093' may vary based on the name prvided by the Oracle
+    sales_auto_list PARTITION ( sys_p10120 ); -- 'SYS_P10120' may vary based on the name prvided by the Oracle
 
 --------------------------------------------End AutoList partition-----------------------------------------
