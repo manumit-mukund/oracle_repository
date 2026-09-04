@@ -11,25 +11,25 @@ INSERT INTO department (
     deptid,
     name,
     loc
-) VALUES ( 10,
+) VALUES ( 1,
            'ACCOUNTING',
-           'NEW YORK' );
+           'MUMBAI' );
 
-INSERT INTO department VALUES ( 20,
+INSERT INTO department VALUES ( 2,
                                 'RESEARCH',
-                                'DALLAS' );
+                                'DELHI' );
 
-INSERT INTO department VALUES ( 30,
+INSERT INTO department VALUES ( 3,
                                 'SALES',
-                                'CHICAGO' );
+                                'BIHAR' );
 
-INSERT INTO department VALUES ( 40,
+INSERT INTO department VALUES ( 4,
                                 'OPERATIONS',
-                                'BOSTON' );
+                                'WB' );
 
-INSERT INTO department VALUES ( 50,
+INSERT INTO department VALUES ( 5,
                                 'IT',
-                                'CALIFORNIA' );
+                                'BANGALORE' );
 
 COMMIT;
 

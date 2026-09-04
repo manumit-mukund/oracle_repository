@@ -19,7 +19,7 @@ INSERT INTO employee_income (
 ) VALUES ( 1,
            'E1',
            10000,
-           10,
+           1,
            sysdate );
 
 INSERT INTO employee_income (
@@ -31,7 +31,7 @@ INSERT INTO employee_income (
 ) VALUES ( 2,
            'E2',
            20000,
-           20,
+           2,
            sysdate );
 
 INSERT INTO employee_income (
@@ -43,7 +43,7 @@ INSERT INTO employee_income (
 ) VALUES ( 3,
            'E3',
            30000,
-           30,
+           3,
            sysdate );
 
 INSERT INTO employee_income (
@@ -55,7 +55,7 @@ INSERT INTO employee_income (
 ) VALUES ( 4,
            'E4',
            50000,
-           40,
+           4,
            sysdate );
 
 INSERT INTO employee_income (
@@ -67,7 +67,7 @@ INSERT INTO employee_income (
 ) VALUES ( 5,
            'E5',
            20000,
-           10,
+           1,
            sysdate );
 
 INSERT INTO employee_income (
@@ -79,7 +79,7 @@ INSERT INTO employee_income (
 ) VALUES ( 6,
            'E6',
            30000,
-           20,
+           2,
            sysdate );
 
 INSERT INTO employee_income (
@@ -91,7 +91,7 @@ INSERT INTO employee_income (
 ) VALUES ( 7,
            'E7',
            40000,
-           30,
+           3,
            sysdate - 1 );
 
 INSERT INTO employee_income (
@@ -103,7 +103,7 @@ INSERT INTO employee_income (
 ) VALUES ( 8,
            'E8',
            60000,
-           50,
+           5,
            sysdate - 2 );
 
 INSERT INTO employee_income (
@@ -115,7 +115,7 @@ INSERT INTO employee_income (
 ) VALUES ( 9,
            'E9',
            60000,
-           50,
+           5,
            sysdate - 2 );
 
 INSERT INTO employee_income (
@@ -127,7 +127,7 @@ INSERT INTO employee_income (
 ) VALUES ( 10,
            'E10',
            59000,
-           50,
+           5,
            sysdate - 2 );
 
 COMMIT;
