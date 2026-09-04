@@ -1,3 +1,5 @@
+DROP TABLE department;
+
 CREATE TABLE department (
     deptid NUMBER(2, 0),
     name   VARCHAR2(14),
@@ -9,26 +11,29 @@ INSERT INTO department (
     deptid,
     name,
     loc
-) VALUES (
-    10,
-    'ACCOUNTING',
-    'NEW YORK'
-);
+) VALUES ( 10,
+           'ACCOUNTING',
+           'NEW YORK' );
 
-INSERT INTO department VALUES (
-    20,
-    'RESEARCH',
-    'DALLAS'
-);
+INSERT INTO department VALUES ( 20,
+                                'RESEARCH',
+                                'DALLAS' );
 
-INSERT INTO department VALUES (
-    30,
-    'SALES',
-    'CHICAGO'
-);
+INSERT INTO department VALUES ( 30,
+                                'SALES',
+                                'CHICAGO' );
 
-INSERT INTO department VALUES (
-    40,
-    'OPERATIONS',
-    'BOSTON'
-);
+INSERT INTO department VALUES ( 40,
+                                'OPERATIONS',
+                                'BOSTON' );
+
+INSERT INTO department VALUES ( 50,
+                                'IT',
+                                'CALIFORNIA' );
+
+COMMIT;
+
+SELECT
+    *
+FROM
+    department;

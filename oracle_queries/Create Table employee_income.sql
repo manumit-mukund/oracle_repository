@@ -17,7 +17,7 @@ INSERT INTO employee_income (
     deptid,
     created_date
 ) VALUES ( 1,
-           'Bill',
+           'E1',
            10000,
            10,
            sysdate );
@@ -29,7 +29,7 @@ INSERT INTO employee_income (
     deptid,
     created_date
 ) VALUES ( 2,
-           'Mike',
+           'E2',
            20000,
            20,
            sysdate );
@@ -41,7 +41,7 @@ INSERT INTO employee_income (
     deptid,
     created_date
 ) VALUES ( 3,
-           'Samson',
+           'E3',
            30000,
            30,
            sysdate );
@@ -53,7 +53,7 @@ INSERT INTO employee_income (
     deptid,
     created_date
 ) VALUES ( 4,
-           'Kevin',
+           'E4',
            50000,
            40,
            sysdate );
@@ -65,7 +65,7 @@ INSERT INTO employee_income (
     deptid,
     created_date
 ) VALUES ( 5,
-           'Bill1',
+           'E5',
            20000,
            10,
            sysdate );
@@ -77,7 +77,7 @@ INSERT INTO employee_income (
     deptid,
     created_date
 ) VALUES ( 6,
-           'Mike1',
+           'E6',
            30000,
            20,
            sysdate );
@@ -89,7 +89,7 @@ INSERT INTO employee_income (
     deptid,
     created_date
 ) VALUES ( 7,
-           'Samson1',
+           'E7',
            40000,
            30,
            sysdate - 1 );
@@ -101,10 +101,36 @@ INSERT INTO employee_income (
     deptid,
     created_date
 ) VALUES ( 8,
-           'Kevin1',
+           'E8',
            60000,
-           40,
+           50,
            sysdate - 2 );
+
+INSERT INTO employee_income (
+    empid,
+    name,
+    salary,
+    deptid,
+    created_date
+) VALUES ( 9,
+           'E9',
+           60000,
+           50,
+           sysdate - 2 );
+
+INSERT INTO employee_income (
+    empid,
+    name,
+    salary,
+    deptid,
+    created_date
+) VALUES ( 10,
+           'E10',
+           59000,
+           50,
+           sysdate - 2 );
+
+COMMIT;
 
 SELECT
     *

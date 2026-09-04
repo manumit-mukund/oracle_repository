@@ -90,6 +90,6 @@ FROM
 SELECT
     *
 FROM
-    sales_auto_list PARTITION ( sys_p10103 ); -- 'SYS_P10103' may vary based on the name prvided by the Oracle
+    sales_auto_list PARTITION ( sys_p10150 ); -- 'SYS_P10150' may vary based on the name prvided by the Oracle
 
 --------------------------------------------End AutoList partition-----------------------------------------
