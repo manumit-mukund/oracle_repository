@@ -1,3 +1,13 @@
+DROP TABLE iot_incoming_data PURGE;
+
+DROP TABLESPACE hash_ptn_1 INCLUDING CONTENTS CASCADE CONSTRAINTS;
+
+DROP TABLESPACE hash_ptn_2 INCLUDING CONTENTS CASCADE CONSTRAINTS;
+
+DROP TABLESPACE hash_ptn_3 INCLUDING CONTENTS CASCADE CONSTRAINTS;
+
+DROP TABLESPACE hash_ptn_4 INCLUDING CONTENTS CASCADE CONSTRAINTS;
+
 CREATE TABLESPACE hash_ptn_1
     DATAFILE 'E:\Oracle Tablespace Files\hash_ptn_1.DBF' SIZE 500M REUSE
     AUTOEXTEND ON NEXT 100M MAXSIZE 1000M;
@@ -52,7 +62,7 @@ INSERT INTO iot_incoming_data
     FROM
         dual
     CONNECT BY
-        level < 10001;
+        level < 501;
 
 COMMIT;
 
@@ -67,7 +77,7 @@ ORDER BY
     partition_position;
 
 SELECT
-    data_item_number
+    *
 FROM
     iot_incoming_data PARTITION ( p1 )
 WHERE
@@ -76,7 +86,7 @@ ORDER BY
     1;
 
 SELECT
-    data_item_number
+    *
 FROM
     iot_incoming_data PARTITION ( p2 )
 WHERE
@@ -85,7 +95,7 @@ ORDER BY
     1;
 
 SELECT
-    data_item_number
+    *
 FROM
     iot_incoming_data PARTITION ( p3 )
 WHERE
@@ -94,7 +104,7 @@ ORDER BY
     1;
 
 SELECT
-    data_item_number
+    *
 FROM
     iot_incoming_data PARTITION ( p4 )
 WHERE
