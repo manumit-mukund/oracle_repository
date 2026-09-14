@@ -69,7 +69,9 @@ COMMIT;
 SELECT
     *
 FROM
-    hash_partition_data;
+    hash_partition_data
+ORDER BY
+    data_item_number;
 
 SELECT
     partition_name,
