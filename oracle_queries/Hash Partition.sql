@@ -1,4 +1,4 @@
-DROP TABLE iot_incoming_data PURGE;
+DROP TABLE hash_partition_data PURGE;
 
 DROP TABLESPACE hash_ptn_1 INCLUDING CONTENTS CASCADE CONSTRAINTS;
 
@@ -24,7 +24,7 @@ CREATE TABLESPACE hash_ptn_4
     DATAFILE 'E:\Oracle Tablespace Files\hash_ptn_4.DBF' SIZE 500M REUSE
     AUTOEXTEND ON NEXT 100M MAXSIZE 1000M;
 
-CREATE TABLE iot_incoming_data (
+CREATE TABLE hash_partition_data (
     data_item_number    NUMBER,
     data_item_key       VARCHAR2(32),
     data_item_value     VARCHAR2(64),
@@ -53,18 +53,23 @@ SELECT
 FROM
     dba_data_files;
 
-INSERT INTO iot_incoming_data
+INSERT INTO hash_partition_data
     SELECT
         ROWNUM,
-        dbms_random.string('X', 16),
-        dbms_random.string('X', 32),
+        dbms_random.string('X', 2),
+        dbms_random.string('X', 2),
         systimestamp
     FROM
         dual
     CONNECT BY
-        level < 501;
+        level <= 16;
 
 COMMIT;
+
+SELECT
+    *
+FROM
+    hash_partition_data;
 
 SELECT
     partition_name,
@@ -72,42 +77,26 @@ SELECT
 FROM
     user_tab_partitions
 WHERE
-    table_name = 'IOT_INCOMING_DATA'
+    table_name = 'HASH_PARTITION_DATA'
 ORDER BY
     partition_position;
 
 SELECT
     *
 FROM
-    iot_incoming_data PARTITION ( p1 )
-WHERE
-    ROWNUM < 6
-ORDER BY
-    1;
+    hash_partition_data PARTITION ( p1 );
 
 SELECT
     *
 FROM
-    iot_incoming_data PARTITION ( p2 )
-WHERE
-    ROWNUM < 6
-ORDER BY
-    1;
+    hash_partition_data PARTITION ( p2 );
 
 SELECT
     *
 FROM
-    iot_incoming_data PARTITION ( p3 )
-WHERE
-    ROWNUM < 6
-ORDER BY
-    1;
+    hash_partition_data PARTITION ( p3 );
 
 SELECT
     *
 FROM
-    iot_incoming_data PARTITION ( p4 )
-WHERE
-    ROWNUM < 6
-ORDER BY
-    1;
+    hash_partition_data PARTITION ( p4 );
