@@ -5,12 +5,12 @@ SELECT
 FROM
     user_tablespaces;
 
-DROP USER manu23ai;
+DROP USER manu_tbs_freepdb1_01;
 
-CREATE USER manu23ai IDENTIFIED BY manu23ai
-    DEFAULT TABLESPACE manu_tbs_02
-    QUOTA UNLIMITED ON manu_tbs_02;
+CREATE USER manu23aifreepdb1 IDENTIFIED BY manu23aifreepdb1
+    DEFAULT TABLESPACE manu_tbs_freepdb1_01
+    QUOTA UNLIMITED ON manu_tbs_freepdb1_01;
 
-GRANT connect TO manu23ai;
+GRANT connect TO manu23aifreepdb1;
 
-GRANT connect, resource, dba TO manu23ai;
+GRANT connect, resource, dba TO manu23aifreepdb1;
