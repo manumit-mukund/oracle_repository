@@ -5,7 +5,7 @@ SELECT
 FROM
     user_tablespaces;
 
-DROP USER manu_tbs_freepdb1_01;
+DROP USER manu23aifreepdb1;
 
 CREATE USER manu23aifreepdb1 IDENTIFIED BY manu23aifreepdb1
     DEFAULT TABLESPACE manu_tbs_freepdb1_01
