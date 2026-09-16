@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS boolean_test PURGE;
+DROP TABLE IF EXISTS boolean_test PURGE; --if exists
 
 CREATE TABLE boolean_test (
     id       NUMBER
