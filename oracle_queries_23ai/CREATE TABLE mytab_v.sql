@@ -1,15 +1,15 @@
-DROP TABLE IF EXISTS mytab_v;
+DROP TABLE IF EXISTS my_vect_float64;
 
-CREATE TABLE mytab_v (
+CREATE TABLE my_vect_float64 (
     v64 VECTOR(2, FLOAT64)
 );
 
-describe mytab_v;
+describe my_vect_FLOAT64;
 
 DECLARE
-    plsql_flt64 vector := to_vector('[0.64, 0.96]');
+    plsql_flt64 vector := to_vector('[0.24, 0.35]');
 BEGIN
-    INSERT INTO mytab_v VALUES ( :plsql_flt64 );
+    INSERT INTO my_vect_float64 VALUES ( plsql_flt64 );
 
 END;
 /
@@ -17,11 +17,6 @@ END;
 COMMIT;
 
 SELECT
-    COUNT(*)
-FROM
-    mytab_v;
-
-SELECT
     *
 FROM
-    mytab_v;
+    my_vect_float64;
