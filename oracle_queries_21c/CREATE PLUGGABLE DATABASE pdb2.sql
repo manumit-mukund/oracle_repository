@@ -1,5 +1,5 @@
-CREATE PLUGGABLE DATABASE pdb2 ADMIN USER SYSDBA IDENTIFIED BY root 
-CREATE_FILE_DEST = 'C:\Users\admin\Downloads\WINDOWS.X64_213000_db_home\oradata';
+CREATE PLUGGABLE DATABASE pdb2
+    ADMIN USER sysdba IDENTIFIED BY pdb2 CREATE_FILE_DEST = 'C:\Users\admin\Downloads\WINDOWS.X64_213000_db_home\oradata';
 
 ALTER PLUGGABLE DATABASE pdb2 OPEN READ WRITE;
 
@@ -12,7 +12,6 @@ FROM
     dba_pdbs
 ORDER BY
     pdb_name;
-    
 
 COLUMN name FORMAT A20
 
@@ -25,4 +24,3 @@ ORDER BY
     name;
 
 SHOW PDBS;
-
