@@ -1,7 +1,7 @@
 -- con_SYS_23ai_free
 
 CREATE PLUGGABLE DATABASE shard2
-    ADMIN USER sysdba IDENTIFIED BY pdb2 CREATE_FILE_DEST = 'C:\Users\admin\Downloads\WINDOWS.X64_213000_db_home\oradata';
+    ADMIN USER sysdba IDENTIFIED BY pdb2 CREATE_FILE_DEST = 'C:\app\admin\product\23ai\oradata\FREE';
 
 ALTER PLUGGABLE DATABASE shard2 OPEN READ WRITE;
 

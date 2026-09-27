@@ -2,6 +2,6 @@
 
 ALTER PLUGGABLE DATABASE shard2 CLOSE;
 
-ALTER PLUGGABLE DATABASE shard2 UNPLUG INTO 'C:\Users\admin\Downloads\WINDOWS.X64_213000_db_home\oradata\shard2.xml';
+ALTER PLUGGABLE DATABASE shard2 UNPLUG INTO 'C:\app\admin\product\23ai\oradata\FREE\shard2.xml';
 
 DROP PLUGGABLE DATABASE shard2;
