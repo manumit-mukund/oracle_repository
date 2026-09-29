@@ -28,6 +28,12 @@ INSERT INTO boolean_test (
 INSERT INTO boolean_test (
     active,
     archived
+) VALUES ( 'FALSE',
+           'TRUE' );
+
+INSERT INTO boolean_test (
+    active,
+    archived
 ) VALUES ( 'YES',
            'NO' );
 
@@ -91,3 +97,24 @@ SELECT
     *
 FROM
     boolean_test;
+
+SELECT
+    *
+FROM
+    boolean_test
+WHERE
+    active = FALSE;
+
+SELECT
+    *
+FROM
+    boolean_test
+WHERE
+    active;
+
+SELECT
+    *
+FROM
+    boolean_test
+WHERE
+    NOT active;
