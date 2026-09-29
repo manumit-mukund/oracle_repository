@@ -6,13 +6,7 @@ CREATE TABLE my_vect_float64 (
 
 describe my_vect_float64;
 
-DECLARE
-    var_flatt64 vector := to_vector('[0.24, 0.35]');
-BEGIN
-    INSERT INTO my_vect_float64 VALUES ( var_flatt64 );
-
-END;
-/
+INSERT INTO my_vect_float64 VALUES ( '[0.24, 0.35]' );
 
 COMMIT;
 
