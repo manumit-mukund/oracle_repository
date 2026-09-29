@@ -1,7 +1,7 @@
 -- con_SYS_21c
 
 CREATE PLUGGABLE DATABASE shard1
-    ADMIN USER sysdba IDENTIFIED BY pdb2 CREATE_FILE_DEST = 'C:\Users\admin\Downloads\WINDOWS.X64_213000_db_home\oradata';
+    ADMIN USER sysdba IDENTIFIED BY pdb2 CREATE_FILE_DEST = 'E:\Oracle Tablespace Files';
 
 ALTER PLUGGABLE DATABASE shard1 OPEN READ WRITE;
 
