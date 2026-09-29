@@ -1,7 +1,7 @@
 -- con_SYS_21c
 
 CREATE PLUGGABLE DATABASE shardcat_pdb
-    ADMIN USER sysdba IDENTIFIED BY pdb2 CREATE_FILE_DEST = 'C:\Users\admin\Downloads\WINDOWS.X64_213000_db_home\oradata';
+    ADMIN USER sysdba IDENTIFIED BY pdb2 CREATE_FILE_DEST = 'E:\Oracle Tablespace Files';
 
 ALTER PLUGGABLE DATABASE shardcat_pdb OPEN READ WRITE;
 
@@ -23,7 +23,7 @@ SHOW PARAMETER spfile;
 SHOW PARAMETER DB_CREATE_FILE_DEST;
 
 CREATE TABLESPACE sharding_catalog_data
-    DATAFILE 'C:\Users\admin\Downloads\WINDOWS.X64_213000_db_home\oradata\sharding_catalog_data.DBF' SIZE 500M REUSE
+    DATAFILE 'E:\Oracle Tablespace Files\sharding_catalog_data.DBF' SIZE 500M REUSE
     AUTOEXTEND ON NEXT 100M MAXSIZE 1000M;
 
 CREATE USER shard_admin IDENTIFIED BY shard_admin
@@ -50,19 +50,15 @@ SELECT
 FROM
     v$services
 WHERE
-    lower(name) LIKE '%shardcat_pdb%';       
-    
-    ALTER SESSION SET CONTAINER=CDB$ROOT;
+    lower(name) LIKE '%shardcat_pdb%';
 
-    
-    ALTER USER GSMCATUSER IDENTIFIED BY "GSMCATUSER";
+ALTER SESSION SET CONTAINER = cdb$root;
+
+ALTER USER gsmcatuser IDENTIFIED BY "GSMCATUSER";
       
 -- Coomand prompt
 
-  sqlplus shard_admin / shard_admin@localhost : 1521 / shardcat_pdb
-  
-  
-  add gsm -gsm gsm1 -catalog 127.0.0.1:1521:shardcat_pdb
+  sqlplus shard_admin / shard_admin@ localhost :1521 / shardcat_pdb add gsm - gsm gsm1 - catalog 127.0.0.1 :1521 :shardcat_pdb
         
 -- Coomand prompt
 
