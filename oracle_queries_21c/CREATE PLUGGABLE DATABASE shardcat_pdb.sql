@@ -54,11 +54,17 @@ WHERE
 
 ALTER SESSION SET CONTAINER = cdb$root;
 
-ALTER USER gsmcatuser IDENTIFIED BY "GSMCATUSER";
+ALTER USER gsmadmin_internal ACCOUNT UNLOCK IDENTIFIED BY gsmadmin_internal;
+
+ALTER USER gsmcatuser IDENTIFIED BY gsmcatuser;
       
 -- Coomand prompt
+
+SET ORACLE_SID=SCAT
 
   sqlplus shard_admin / shard_admin@ localhost :1521 / shardcat_pdb add gsm - gsm gsm1 - catalog 127.0.0.1 :1521 :shardcat_pdb
         
 -- Coomand prompt
+
+EXEC DBMS_GSM_ROUTING.ADD_SHARD('shard1', 'shard_group1', 'host1:1521/shard1_svc');
 
