@@ -2,6 +2,6 @@
 
 ALTER PLUGGABLE DATABASE shardcat_pdb CLOSE;
 
-ALTER PLUGGABLE DATABASE shardcat_pdb UNPLUG INTO 'C:\Users\admin\Downloads\WINDOWS.X64_213000_db_home\oradata\shardcat_pdb.xml';
+ALTER PLUGGABLE DATABASE shardcat_pdb UNPLUG INTO 'E:\Oracle Tablespace Files\shardcat_pdb.xml';
 
 DROP PLUGGABLE DATABASE shardcat_pdb;
