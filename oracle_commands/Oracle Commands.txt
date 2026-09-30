@@ -69,7 +69,7 @@ Version 23.7.0.25.01
 Copyright (c) 1982, 2025, Oracle.  All rights reserved.
 
 Enter user-name: sys as sysdba
-Enter password:
+Enter password:root
 
 Connected to:
 Oracle Database 23ai Free Release 23.0.0.0.0 - Develop, Learn, and Run for Free
