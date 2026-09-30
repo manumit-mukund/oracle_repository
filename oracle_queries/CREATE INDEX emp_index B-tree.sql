@@ -52,7 +52,7 @@ FROM
 -- EXPLAIN PLAN  before index creation --
 
 ---------------Create index---------------------------------
-CREATE INDEX emp_index ON
+CREATE INDEX emp_index_btree ON
     employee_for_index_btree (
         department_id
     );    
