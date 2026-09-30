@@ -48,24 +48,24 @@ WHERE
 SELECT
     *
 FROM
-    TABLE ( dbms_xplan.display );
-    
--- EXPLAIN PLAN  before index creation--
+    TABLE ( dbms_xplan.display );    
+-- EXPLAIN PLAN  before index creation --
 
+---------------Create index---------------------------------
 CREATE INDEX emp_index ON
     employee_for_index (
         department_id
-    );
+    );    
+ ---------------Create index---------------------------------
 
 SELECT
     *
 FROM
     employee_for_index
 WHERE
-    department_id = 30;
+    department_id = 30;    
     
--- EXPLAIN PLAN  after index creation--
-
+-- EXPLAIN PLAN  after index creation --
 EXPLAIN PLAN
     FOR
 SELECT
@@ -78,6 +78,5 @@ WHERE
 SELECT
     *
 FROM
-    TABLE ( dbms_xplan.display );
-    
--- EXPLAIN PLAN  after index creation--
+    TABLE ( dbms_xplan.display );    
+-- EXPLAIN PLAN  after index creation --
