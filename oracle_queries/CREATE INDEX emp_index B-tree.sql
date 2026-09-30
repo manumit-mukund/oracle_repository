@@ -1,6 +1,6 @@
 -- con_manu_21c
 
-DROP TABLE employee_for_index_btree_btree PURGE; -- if exists
+DROP TABLE employee_for_index_btree PURGE; -- if exists
 
 -- Create a simple table
 CREATE TABLE employee_for_index_btree (
