@@ -14,13 +14,13 @@ INSERT INTO employee_for_index VALUES ( 1,
                                         'E1',
                                         10 );
 
-INSERT INTO employee_for_index VALUES ( 2,
-                                        'E2',
-                                        20 );
-
 INSERT INTO employee_for_index VALUES ( 3,
                                         'E3',
                                         30 );
+
+INSERT INTO employee_for_index VALUES ( 2,
+                                        'E2',
+                                        20 );
 
 INSERT INTO employee_for_index VALUES ( 4,
                                         'E4',
@@ -33,7 +33,7 @@ SELECT
 FROM
     employee_for_index
 WHERE
-    department_id = 30;
+    department_id = 40;
 
 -- EXPLAIN PLAN before index creation--
 EXPLAIN PLAN
@@ -43,7 +43,7 @@ SELECT
 FROM
     employee_for_index
 WHERE
-    department_id = 30;
+    department_id = 40;
 
 SELECT
     *
@@ -63,7 +63,7 @@ SELECT
 FROM
     employee_for_index
 WHERE
-    department_id = 30;    
+    department_id = 40;    
     
 -- EXPLAIN PLAN  after index creation --
 EXPLAIN PLAN
@@ -73,7 +73,7 @@ SELECT
 FROM
     employee_for_index
 WHERE
-    department_id = 30;
+    department_id = 40;
 
 SELECT
     *
