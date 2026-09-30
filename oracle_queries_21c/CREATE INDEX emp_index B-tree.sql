@@ -22,12 +22,11 @@ INSERT INTO employee_for_index VALUES ( 3,
                                         'E3',
                                         30 );
 
-COMMIT;
+INSERT INTO employee_for_index VALUES ( 4,
+                                        'E4',
+                                        40 );
 
-SELECT
-    *
-FROM
-    employee_for_index;
+COMMIT;
 
 SELECT
     *
