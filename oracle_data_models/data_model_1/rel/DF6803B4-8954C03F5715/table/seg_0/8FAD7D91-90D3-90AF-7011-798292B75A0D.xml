@@ -1,0 +1,54 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8FAD7D91-90D3-90AF-7011-798292B75A0D" name="people">
+<createdBy>admin</createdBy>
+<createdTime>2024-09-09 07:52:47 UTC</createdTime>
+<generatorID>F5095E37-7FC9-A596-EEA5-8EC549E49217</generatorID>
+<ownerDesignName>data_model_1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="person_name" id="DEF1E1B3-8720-6695-789E-BA82355088CD">
+<createdBy>admin</createdBy>
+<createdTime>2024-09-09 07:52:47 UTC</createdTime>
+<generatorID>DC182CE9-0384-7FBA-1D9F-30130C50503E</generatorID>
+<ownerDesignName>data_model_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150</dataTypeSize>
+<ownDataTypeParameters>150,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="client_id" id="B51BB8E1-718A-01E3-8C82-FA16C7D3982B">
+<createdBy>admin</createdBy>
+<createdTime>2024-09-09 10:37:50 UTC</createdTime>
+<generatorID>BDD58724-85EC-F255-14CE-9B1F572CC67A</generatorID>
+<ownerDesignName>data_model_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6E8E76DF-FCCF-9794-B276-A1CA9851AA82" name="people_PK">
+<createdBy>admin</createdBy>
+<createdTime>2024-09-09 07:52:47 UTC</createdTime>
+<generatorID>39812B47-2D91-3D12-B599-CEA35DCE3C45</generatorID>
+<ownerDesignName>data_model_1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+</ind_PK_UK>
+<ind_PK_UK id="CFFE8CA5-152E-4D65-29E1-5B683CC78B2A" name="people_clients_FK">
+<createdBy>admin</createdBy>
+<createdTime>2024-09-09 07:52:47 UTC</createdTime>
+<generatorID>D668710D-23DB-3EE8-E6D8-FCB3CEBEB1EF</generatorID>
+<ownerDesignName>data_model_1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+</ind_PK_UK>
+</indexes>
+</Table>

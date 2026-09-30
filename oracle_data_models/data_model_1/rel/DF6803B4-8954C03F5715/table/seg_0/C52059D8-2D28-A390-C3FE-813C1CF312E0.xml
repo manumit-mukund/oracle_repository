@@ -1,0 +1,54 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C52059D8-2D28-A390-C3FE-813C1CF312E0" name="organization">
+<createdBy>admin</createdBy>
+<createdTime>2024-09-09 07:52:47 UTC</createdTime>
+<generatorID>6E32EEB7-5DE6-0879-1C2E-10D22200D747</generatorID>
+<ownerDesignName>data_model_1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="organization_name" id="0BC73B9D-6538-E54B-0D24-1F1A01E633F6">
+<createdBy>admin</createdBy>
+<createdTime>2024-09-09 07:52:47 UTC</createdTime>
+<generatorID>B8AAEB54-6BAE-AA8D-6644-6144B4C89151</generatorID>
+<ownerDesignName>data_model_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150</dataTypeSize>
+<ownDataTypeParameters>150,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="client_id" id="0F4E6663-7B34-FB1D-C1C3-4A9E77C58079">
+<createdBy>admin</createdBy>
+<createdTime>2024-09-09 10:37:50 UTC</createdTime>
+<generatorID>BDD58724-85EC-F255-14CE-9B1F572CC67A</generatorID>
+<ownerDesignName>data_model_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="7D14D37C-93A1-F16D-3D62-49C84F8A6906" name="organization_PK">
+<createdBy>admin</createdBy>
+<createdTime>2024-09-09 07:52:47 UTC</createdTime>
+<generatorID>39812B47-2D91-3D12-B599-CEA35DCE3C45</generatorID>
+<ownerDesignName>data_model_1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+</ind_PK_UK>
+<ind_PK_UK id="EA802CCB-B4A0-BDC0-C5F8-94D6DDC6D1CA" name="organization_clients_FK">
+<createdBy>admin</createdBy>
+<createdTime>2024-09-09 07:52:47 UTC</createdTime>
+<generatorID>AAE45979-D9A5-2697-ABF2-C24AFAAA2FB2</generatorID>
+<ownerDesignName>data_model_1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+</ind_PK_UK>
+</indexes>
+</Table>
