@@ -36,6 +36,23 @@ FROM
 WHERE
     department_id = 30;
 
+-- EXPLAIN PLAN before index creation--
+EXPLAIN PLAN
+    FOR
+SELECT
+    *
+FROM
+    employee_for_index
+WHERE
+    department_id = 30;
+
+SELECT
+    *
+FROM
+    TABLE ( dbms_xplan.display );
+    
+-- EXPLAIN PLAN  before index creation--
+
 CREATE INDEX emp_index ON
     employee_for_index (
         department_id
@@ -47,3 +64,21 @@ FROM
     employee_for_index
 WHERE
     department_id = 30;
+    
+-- EXPLAIN PLAN  after index creation--
+
+EXPLAIN PLAN
+    FOR
+SELECT
+    *
+FROM
+    employee_for_index
+WHERE
+    department_id = 30;
+
+SELECT
+    *
+FROM
+    TABLE ( dbms_xplan.display );
+    
+-- EXPLAIN PLAN  after index creation--
