@@ -1,6 +1,6 @@
 -- con_manu_21c
 
-DROP TABLE employee_for_index_composite PURGE; -- if exists
+DROP TABLE employee_for_index_composite PURGE; --if exists
 
 CREATE TABLE employee_for_index_composite (
     employee_id   NUMBER PRIMARY KEY,
