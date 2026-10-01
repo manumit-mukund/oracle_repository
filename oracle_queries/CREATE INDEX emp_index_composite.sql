@@ -61,7 +61,7 @@ WHERE
     last_name = 'L2';
 
 -- EXPLAIN PLAN before index creation--
-EXPLAIN PLAN
+EXPLAIN PLAN SET STATEMENT_ID = 'emp_query_one'
     FOR
 SELECT
     *
@@ -71,10 +71,38 @@ WHERE
         department_id = 20
     AND last_name = 'L2';
 
+EXPLAIN PLAN SET STATEMENT_ID = 'emp_query_two'
+    FOR
 SELECT
     *
 FROM
-    TABLE ( dbms_xplan.display );    
+    employee_for_index_composite
+WHERE
+    department_id = 20;
+
+EXPLAIN PLAN SET STATEMENT_ID = 'emp_query_three'
+    FOR
+SELECT
+    *
+FROM
+    employee_for_index_composite
+WHERE
+    last_name = 'L2';
+
+SELECT
+    *
+FROM
+    TABLE ( dbms_xplan.display('PLAN_TABLE', 'emp_query_one', 'TYPICAL') );
+
+SELECT
+    *
+FROM
+    TABLE ( dbms_xplan.display('PLAN_TABLE', 'emp_query_two', 'TYPICAL') );
+
+SELECT
+    *
+FROM
+    TABLE ( dbms_xplan.display('PLAN_TABLE', 'emp_query_three', 'TYPICAL') );
 -- EXPLAIN PLAN  before index creation --
 
 CREATE INDEX emp_index_composite ON
@@ -85,7 +113,7 @@ CREATE INDEX emp_index_composite ON
 
     
 -- EXPLAIN PLAN  after index creation --
-EXPLAIN PLAN
+EXPLAIN PLAN SET STATEMENT_ID = 'emp_query_one'
     FOR
 SELECT
     *
@@ -95,8 +123,36 @@ WHERE
         department_id = 20
     AND last_name = 'L2';
 
+EXPLAIN PLAN SET STATEMENT_ID = 'emp_query_two'
+    FOR
 SELECT
     *
 FROM
-    TABLE ( dbms_xplan.display );    
+    employee_for_index_composite
+WHERE
+    department_id = 20;
+
+EXPLAIN PLAN SET STATEMENT_ID = 'emp_query_three'
+    FOR
+SELECT
+    *
+FROM
+    employee_for_index_composite
+WHERE
+    last_name = 'L2';
+
+SELECT
+    *
+FROM
+    TABLE ( dbms_xplan.display('PLAN_TABLE', 'emp_query_one', 'TYPICAL') );
+
+SELECT
+    *
+FROM
+    TABLE ( dbms_xplan.display('PLAN_TABLE', 'emp_query_two', 'TYPICAL') );
+
+SELECT
+    *
+FROM
+    TABLE ( dbms_xplan.display('PLAN_TABLE', 'emp_query_three', 'TYPICAL') ); 
 -- EXPLAIN PLAN  after index creation --
