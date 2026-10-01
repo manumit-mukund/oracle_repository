@@ -1,5 +1,7 @@
 -- con_manu_21c
 
+DROP INDEX cust_index_bitmap; --if exists
+
 DROP TABLE customer_for_index_bitmap PURGE; -- if exists
 
 CREATE TABLE customer_for_index_bitmap (
