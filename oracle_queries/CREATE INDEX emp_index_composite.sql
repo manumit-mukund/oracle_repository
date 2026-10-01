@@ -1,5 +1,7 @@
 -- con_manu_21c
 
+DROP INDEX emp_index_composite; --if exists
+
 DROP TABLE employee_for_index_composite PURGE; --if exists
 
 CREATE TABLE employee_for_index_composite (
@@ -44,6 +46,20 @@ WHERE
         department_id = 20
     AND last_name = 'L2';
 
+SELECT
+    *
+FROM
+    employee_for_index_composite
+WHERE
+    department_id = 20;
+
+SELECT
+    *
+FROM
+    employee_for_index_composite
+WHERE
+    last_name = 'L2';
+
 -- EXPLAIN PLAN before index creation--
 EXPLAIN PLAN
     FOR
@@ -67,29 +83,8 @@ CREATE INDEX emp_index_composite ON
         last_name
     );
 
-SELECT
-    *
-FROM
-    employee_for_index_composite
-WHERE
-        department_id = 20
-    AND last_name = 'L2';
-
-SELECT
-    *
-FROM
-    employee_for_index_composite
-WHERE
-    department_id = 20;
-
-SELECT
-    *
-FROM
-    employee_for_index_composite
-WHERE
-    last_name = 'L2';
     
-    -- EXPLAIN PLAN  after index creation --
+-- EXPLAIN PLAN  after index creation --
 EXPLAIN PLAN
     FOR
 SELECT
