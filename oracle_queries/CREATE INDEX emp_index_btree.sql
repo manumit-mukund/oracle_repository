@@ -1,6 +1,8 @@
 -- con_manu_21c
 
-DROP TABLE employee_for_index_btree PURGE; -- if exists
+DROP INDEX emp_index_btree; --if exists
+
+DROP TABLE employee_for_index_btree PURGE; --if exists
 
 -- Create a simple table
 CREATE TABLE employee_for_index_btree (
@@ -57,13 +59,6 @@ CREATE INDEX emp_index_btree ON
         department_id
     );    
  ---------------Create index---------------------------------
-
-SELECT
-    *
-FROM
-    employee_for_index_btree
-WHERE
-    department_id = 40;    
     
 -- EXPLAIN PLAN  after index creation --
 EXPLAIN PLAN
