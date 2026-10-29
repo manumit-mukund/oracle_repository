@@ -1,6 +1,6 @@
 -- con_manu_21c
 
-DROP INDEX cust_index_bitmap; --if exists
+DROP INDEX cust_index_bitmap; -- if exists
 
 DROP TABLE customer_for_index_bitmap PURGE; -- if exists
 
@@ -39,7 +39,7 @@ FROM
 WHERE
     gender = 'M';
 
--- EXPLAIN PLAN before index creation--
+-- EXPLAIN PLAN before index creation --
 EXPLAIN PLAN
     FOR
 SELECT
