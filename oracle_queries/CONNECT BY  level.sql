@@ -5,6 +5,7 @@ FROM
 CONNECT BY
     level <= 5;
 
+
 SELECT
     trunc(sysdate, 'IW') + ( level - 1 ) AS week_date
 FROM
