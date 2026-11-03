@@ -1,18 +1,18 @@
 SET SERVEROUTPUT ON
 
-CREATE OR REPLACE PROCEDURE proconeinoutparameter (
-    genericparam IN OUT VARCHAR2
+CREATE OR REPLACE PROCEDURE procedure_with_inout_parameter (
+    var_in_out IN OUT VARCHAR2
 ) IS
 BEGIN
-    genericparam := 'Hello ' || genericparam;
+    var_in_out := 'Hello ' || var_in_out;
 END;
 /
 
 DECLARE
-    genericparam VARCHAR2(100) := 'Manu';
+    var_in_out VARCHAR2(100) := 'Manu';
 BEGIN
-    dbms_output.put_line(genericparam);
-    proconeinoutparameter(genericparam);
-    dbms_output.put_line(genericparam);
+    dbms_output.put_line(var_in_out);
+    procedure_with_inout_parameter(var_in_out);
+    dbms_output.put_line(var_in_out);
 END;
 /
