@@ -1,10 +1,10 @@
 SET SERVEROUTPUT ON
 
 CREATE OR REPLACE PROCEDURE procoutparameter (
-    outparam1 OUT VARCHAR2
+    outparam OUT VARCHAR2
 ) IS
 BEGIN
-    outparam1 := 'Hello World OUT parameter';
+    outparam := 'Hello World OUT parameter';
 END;
 /
 
