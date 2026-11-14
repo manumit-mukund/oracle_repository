@@ -1,6 +1,6 @@
 SET SERVEROUTPUT ON
 
-CREATE OR REPLACE PROCEDURE procOUTParameter (
+CREATE OR REPLACE PROCEDURE procoutparameter (
     outparam1 OUT VARCHAR2
 ) IS
 BEGIN
@@ -11,7 +11,7 @@ END;
 DECLARE
     outparam1 VARCHAR2(100);
 BEGIN
-    procOUTParameter(outparam1);
+    procoutparameter(outparam1);
     dbms_output.put_line(outparam1);
 END;
 /
