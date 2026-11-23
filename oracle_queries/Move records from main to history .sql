@@ -15,11 +15,11 @@ INSERT INTO employee_income_history
     FROM
         employee_income
     WHERE
-        created_date < trunc(sysdate) - 1;
+        doj < trunc(sysdate) - 1;
 
 DELETE FROM employee_income
 WHERE
-    created_date < trunc(sysdate) - 1;
+    doj < trunc(sysdate) - 1;
 
 COMMIT;
 
