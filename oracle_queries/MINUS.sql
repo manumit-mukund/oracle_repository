@@ -1,0 +1,9 @@
+SELECT
+    *
+FROM
+    employee_income
+MINUS
+SELECT
+    *
+FROM
+    employee_income_history;
